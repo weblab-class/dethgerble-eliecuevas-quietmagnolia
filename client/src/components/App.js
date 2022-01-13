@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
-import Skeleton from "./pages/Skeleton.js";
+import Home from "./pages/Home.js";
+import Farm from "./pages/Farm.js";
+import Friends from "./pages/Friends.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 
@@ -39,11 +42,18 @@ const App = () => {
   };
 
   return (
+    // TO DO: ADD SignIn PAGE THAT WILL BE ENTRY TO WEBSITE
     <>
-      <Router>
-        <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        <NotFound default />
-      </Router>
+      <NavBar />
+      <div>
+        <Router>
+          <Home path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+          <Farm path="/farm" userId={user._id}/>
+          <Friends path="/friends"/>
+          <Profile path="/profile"/>
+          <NotFound default />
+        </Router>
+      </div>
     </>
   );
 };
