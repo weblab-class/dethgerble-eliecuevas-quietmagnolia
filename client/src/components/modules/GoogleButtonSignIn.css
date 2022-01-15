@@ -1,0 +1,11 @@
+.GoogleButtonSignIn1 {
+    position:absolute;
+    top: 718px;
+    right: 650px;
+    display:block;
+
+    width:1px;
+    z-index: 1010;
+    opacity: 0;
+  }
+

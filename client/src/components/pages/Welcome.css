@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;600&family=Saira+Semi+Condensed:wght@300&display=swap');
+
 
 
 
@@ -43,17 +44,32 @@
 
 .NewUserText {
     position: absolute;
+    top: 650px;
+    z-index: 101;
+    height: 50px;
+    color: white;
+    font-size: 20pt;
+    font-family: Saira Semi Condensed;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    left: 1100px;
+}
+
+.ExistingUserText {
+    position: absolute;
     top: 700px;
     z-index: 101;
     height: 50px;
     color: white;
     font-size: 20pt;
-    font-family: Saira Condensed;
+    font-family: Saira Semi Condensed;
     font-style: normal;
     font-weight: normal;
     text-align: center;
-    left: 75px;
+    left: 1056px;
 }
+
 
 .WelcomeStrip {
     position: absolute;
@@ -66,4 +82,36 @@
     background: #000000;
     mix-blend-mode: darken;
     opacity: .7;
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(-115deg);
+    color:white;
+    
+}
+
+
+.GoogleButtonRegister {
+    float:none;
+    position:absolute;
+    top: 100px;
+    right: 100px;
+    display:block;
+    margin:auto;
+    width:max-content;
+}
+
+.GoogleButtonSignIn {
+    float:none;
+    position:absolute;
+    top: 68px;
+    right: 100px;
+    display:block;
+    margin:auto;
+    width:max-content;
+
 }

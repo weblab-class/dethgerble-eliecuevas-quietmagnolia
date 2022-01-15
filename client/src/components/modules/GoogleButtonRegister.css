@@ -1,0 +1,12 @@
+.GoogleButtonRegister {
+    float:none;
+    position:absolute;
+    top: 665px;
+    right: 650px;
+    display:block;
+    margin:auto;
+    width:1px;
+    z-index: 102;
+    opacity: 0;
+  }
+
