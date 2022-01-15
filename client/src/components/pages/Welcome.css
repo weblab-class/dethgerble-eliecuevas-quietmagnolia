@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200&display=swap');
+
+
+
+.WelcomeImage {
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+    bottom: 0px;
+}
+
+.Picturesque {
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    top: 110px;
+    
+    font-family: Saira Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 47px;
+    text-align: center;
+    
+    color: #4A5AED;
+    background-color: #f4f4f4;
+}
+
+.TextOnWelcomeImage {
+    position: absolute;
+    top: 600px;
+    z-index: 100;
+    height: 100px;
+    color: white;
+    font-size: 60pt;
+    font-family: Saira Condensed;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    left: 75px
+}
+
+.NewUserText {
+    position: absolute;
+    top: 700px;
+    z-index: 101;
+    height: 50px;
+    color: white;
+    font-size: 20pt;
+    font-family: Saira Condensed;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    left: 75px;
+}
+
+.WelcomeStrip {
+    position: absolute;
+    width: 100%;
+    height: 160px;
+    left: 0px;
+    top: 625px;
+    z-index: 99;
+
+    background: #000000;
+    mix-blend-mode: darken;
+    opacity: .7;
+}

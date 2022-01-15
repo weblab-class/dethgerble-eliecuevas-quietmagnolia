@@ -1,0 +1,12 @@
+
+
+.Strip {
+    position: absolute;
+    width: 100%;
+    height: 183px;
+    left: 0px;
+    top: 709px;
+
+    background: #000000;
+    mix-blend-mode: darken;
+}

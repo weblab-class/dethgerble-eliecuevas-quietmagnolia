@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
-import NotFound from "./pages/NotFound.js";
-import LoginButton from "./modules/LoginButton.js";
-import Farm from "./pages/Farm.js";
-import Friends from "./pages/Friends.js";
-import Profile from "./pages/Profile.js";
-import Navbar from "./modules/Navbar.js";
-import Triangle from "./modules/Navbar.js";
-import Welcome from "./pages/Welcome.js";
 
-import "../utilities.css";
+import Navbar from "../modules/Navbar.js";
+import WelcomeImage1 from "../images/welcomefarm1.jpg";
+import WelcomeStrip from "../modules/WelcomeStrip.js";
 
+import "../../utilities.css";
+import "./Welcome.css";
 
-import { socket } from "../client-socket.js";
+import { socket } from "../../client-socket.js";
 
-import { get, post } from "../utilities";
+import { get, post } from "../../utilities";
 import { Route } from "react-router";
+
+
 
 /**
  * Define the "App" component
  */
-const App = () => {
+const Welcome = () => {
   const [userId, setUserId] = useState(undefined);
 
   useEffect(() => {
@@ -46,16 +44,37 @@ const App = () => {
     post("/api/logout");
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
-    // TO DO: ADD SignIn PAGE THAT WILL BE ENTRY TO WEBSITE
     <>
-      <div>
-        <Router>
-          <Welcome path = "/" />
-        </Router>
-      </div>
+ 
+        
+        <h1 className = "TextOnWelcomeImage"> Welcome to evolve</h1>
+
+    <div className = "WelcomeStrip"> </div>
+
+
+      <h1 className = "Picturesque">Your Picturesque Productivity</h1>
+      <img className = "WelcomeImage" src = {WelcomeImage1}/>
+      <Navbar/> 
+
+
+
     </>
   );
 };
 
-export default App;
+export default Welcome;
