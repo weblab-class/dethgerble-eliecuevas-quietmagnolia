@@ -3,8 +3,11 @@
 .Logo {
 
 
-    position: relative;
-    
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
     font-family: Saira Condensed;
     font-style: normal;
     font-weight: normal;

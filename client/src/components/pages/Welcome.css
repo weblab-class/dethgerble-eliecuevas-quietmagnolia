@@ -8,6 +8,7 @@
     height: 80%;
     width: 100%;
     object-fit: cover;
+    top:187px;
     bottom: 0px;
 }
 
@@ -30,7 +31,7 @@
 
 .TextOnWelcomeImage {
     position: absolute;
-    top: 600px;
+    bottom: 132px;
     z-index: 100;
     height: 100px;
     color: white;
@@ -44,7 +45,7 @@
 
 .NewUserText {
     position: absolute;
-    top: 650px;
+    bottom: 205px;
     z-index: 101;
     height: 50px;
     color: white;
@@ -53,12 +54,12 @@
     font-style: normal;
     font-weight: normal;
     text-align: center;
-    left: 1100px;
+    right: 150px;
 }
 
 .ExistingUserText {
     position: absolute;
-    top: 700px;
+    bottom: 153px;
     z-index: 101;
     height: 50px;
     color: white;
@@ -67,7 +68,7 @@
     font-style: normal;
     font-weight: normal;
     text-align: center;
-    left: 1056px;
+    right: 101px;
 }
 
 
@@ -76,7 +77,7 @@
     width: 100%;
     height: 160px;
     left: 0px;
-    top: 625px;
+    bottom: 155px;
     z-index: 99;
 
     background: #000000;
