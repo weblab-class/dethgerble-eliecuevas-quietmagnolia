@@ -11,6 +11,7 @@ import "./LoginButton.css";
 const Navbar = () => (
 
     <>
+    <span className = "Navbar">
     <h1 className = "Background"> </h1>
     <h1 className = "Logo"> evolve.io </h1>
     <LoginButton/>
@@ -18,6 +19,7 @@ const Navbar = () => (
     <h1 className = "MenuText"> Menu </h1>
 
     <ButtonMenu/>
+    </span>
     </>
 
 );

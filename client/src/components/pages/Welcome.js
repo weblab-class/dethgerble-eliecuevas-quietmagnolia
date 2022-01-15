@@ -75,7 +75,6 @@ const Welcome = () => {
 
     <h1 className = "Picturesque">Your Picturesque Productivity</h1>
     <img className = "WelcomeImage" src = {WelcomeImage1}/>
-    <Navbar/> 
 
 
 

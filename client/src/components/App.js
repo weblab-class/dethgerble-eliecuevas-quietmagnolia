@@ -49,12 +49,15 @@ const App = () => {
   return (
     // TO DO: ADD SignIn PAGE THAT WILL BE ENTRY TO WEBSITE
     <>
+    
       <div>
         <Router>
           <Welcome path = "/" />
         </Router>
       </div>
+      <Navbar/>
     </>
+    
   );
 };
 
