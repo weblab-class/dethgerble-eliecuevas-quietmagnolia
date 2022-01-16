@@ -28,11 +28,6 @@ const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.goog
 
 const Welcome = (props) => {
 
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    get('/api/user', {userid: props.userId}).then((userObj) => setUser(userObj));
-  }, []);
 
   return (
     <>
