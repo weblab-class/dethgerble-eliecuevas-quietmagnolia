@@ -18,7 +18,7 @@ const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.goog
 
 
 
-const Friends = () => {
+const About = () => {
 
 
   return (
@@ -34,4 +34,4 @@ const Friends = () => {
   );
 };
 
-export default Friends;
+export default About;

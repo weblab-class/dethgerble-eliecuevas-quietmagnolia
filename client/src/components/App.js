@@ -55,6 +55,12 @@ const App = () => {
           <Welcome 
           userId = {userId}
           path = "/" />
+          <Farm path = "/farm" />
+          {/*<Tasks path="/tasks" />
+          <Friends path='/friends/' />
+          <Stats path="/stats" />
+          <About path="/about" /> 
+          <Profile path="/profile" /> */}
         </Router>
         </div>
       
