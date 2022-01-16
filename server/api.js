@@ -45,7 +45,7 @@ router.post("/initsocket", (req, res) => {
 });
 
 router.get("/user", (req, res) => {
-  User.find({ googleid: req.query.parent }).then((user) => {
+  User.findById( req.query.userId ).then((user) => {
     res.send(user);
   });
 });

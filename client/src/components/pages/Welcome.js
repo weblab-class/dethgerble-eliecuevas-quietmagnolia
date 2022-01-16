@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { Router } from "@reach/router";
 
 import Navbar from "../modules/Navbar.js";
@@ -23,52 +23,36 @@ const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.goog
 /**
  * Define the "App" component
  */
-const Welcome = () => {
-  const [userId, setUserId] = useState(undefined);
+
+
+
+const Welcome = (props) => {
+
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    get("/api/whoami").then((user) => {
-      if (user._id) {
-        // they are registed in the database, and currently logged in.
-        setUserId(user._id);
-      }
-    });
+    get('/api/user', {userid: props.userId}).then((userObj) => setUser(userObj));
   }, []);
-
-  const handleLogin = (res) => {
-    console.log(`Logged in as ${res.profileObj.name}`);
-    const userToken = res.tokenObj.id_token;
-    post("/api/login", { token: userToken }).then((user) => {
-      setUserId(user._id);
-      post("/api/initsocket", { socketid: socket.id });
-    });
-  };
-
-  const handleLogout = () => {
-    setUserId(undefined);
-    post("/api/logout");
-  };
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <>
  
+    {props.userId ? (
+      <>
+      <h1 className = "TextOnWelcomeImage"> Welcome back,{props.userId} </h1>
+      </>
+    ) : (
+
+      <>
     <GoogleButtonSignIn/>
     <GoogleButtonRegister/>
         
     <h1 className = "TextOnWelcomeImage"> Welcome to evolve</h1>
+
     <h1 className = "NewUserText">New User? <b> Register</b> &nbsp;&nbsp;&nbsp;<i className = "arrow"></i>&nbsp;&nbsp;&nbsp;&nbsp;to begin your evolution</h1>
     <h1 className = "ExistingUserText">Returning User? <b>Sign In </b> &nbsp;&nbsp;&nbsp;<i className = "arrow"></i>&nbsp;&nbsp;&nbsp;&nbsp;to pick up where you left off</h1>
+      </>
+    )}
 
     <div className = "WelcomeStrip"> </div>
 

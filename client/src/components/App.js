@@ -52,10 +52,18 @@ const App = () => {
     
       <div>
         <Router>
-          <Welcome path = "/" />
+          <Welcome 
+          userId = {userId}
+          path = "/" />
         </Router>
-      </div>
-      <Navbar/>
+        </div>
+      
+      <Navbar 
+      handleLogin = {handleLogin}
+      handleLogout={handleLogout}
+      userId = {userId}
+      />
+
     </>
     
   );
