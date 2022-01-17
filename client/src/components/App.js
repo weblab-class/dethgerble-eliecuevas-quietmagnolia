@@ -38,7 +38,7 @@ const App = () => {
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
       setUserName(user.name);
-      setUserGoogleId(user.googleid);;
+      setUserGoogleId(user.googleid);
       post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -52,7 +52,11 @@ const App = () => {
 
   return (
     <>
-    
+      <Navbar 
+      handleLogin = {handleLogin}
+      handleLogout={handleLogout}
+      userId = {userId}
+      /> 
       <div>
         <Router>
           <Welcome 
@@ -86,13 +90,7 @@ const App = () => {
           path="/profile" />
           <NotFound default />
         </Router>
-        </div>
-      
-      <Navbar 
-      handleLogin = {handleLogin}
-      handleLogout={handleLogout}
-      userId = {userId}
-      />
+      </div> 
     </>
   );
 };

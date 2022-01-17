@@ -3,7 +3,7 @@ import React from "react";
 
 
 const ButtonMenu = () => (
-<nav class="btn-pluss-wrapper">
+<nav className="btn-pluss-wrapper">
  <div href="#" className="btn-pluss">
   <ul>
     <li> <a href="/">Welcome</a> </li>

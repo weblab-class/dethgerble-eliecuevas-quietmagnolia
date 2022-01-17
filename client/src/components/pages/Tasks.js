@@ -20,7 +20,7 @@ const Tasks = (props) => {
   // Get tasks from db, if there are any
   useEffect(() => {
     document.title = "Tasks List";
-    get("/api/tasks", {googleid: userGoogleId}).then((taskObjs) => {
+    get("/api/tasks", {googleid: props.userGoogleId}).then((taskObjs) => {
       setTasks(taskObjs);
     });
   }, []);
@@ -34,32 +34,28 @@ const Tasks = (props) => {
   const hasTasks = tasks.length !== 0;
   if (hasTasks) {
     tasksList = tasks.map((taskObj) => (
-      <NewTask
+      <SingleTask 
         _id={taskObj._id}
         task={taskObj.task}
         date={taskObj.date}
       />
     ));
   } else {
-    tasksList = <div>No tasks!</div>;
+    tasksList = <div className="Tasks-BlankScreen">No tasks!</div>
   }
-
-
 
   return (
     <>
- 
     {props.userName ? (
       <>
-      {props.userId && <NewTask addNewTask={addNewTask} />}
       {tasksList}
+      {<NewTask addNewTask={addNewTask} />}
       </>
     ) : (
       <>
-      <h1 className = "Tasks-LoggedOut"> You are not logged in. Please log in to view your tasks.</h1>
+      <h1 className = "Tasks-BlankScreen"> You are not logged in. Please log in to view your tasks.</h1>
       </>
     )};
-
     </>
   );
 };
