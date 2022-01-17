@@ -17,7 +17,7 @@ const Navbar = (props) => {
     <>
     <span className = "Navbar">
     <h1 className = "Background"> </h1>
-    <h1 className = "Logo"> evolve.io </h1>
+    <h1 className = "Logo"> uevolve </h1>
 
 
     <h1 className = "MenuText"> Menu </h1>
