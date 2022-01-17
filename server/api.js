@@ -12,7 +12,7 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 const Farm = require("./models/farm");
-const Tasks = require("./models/tasks");
+const Task = require("./models/task");
 const Stats = require("./models/stats");
 
 // import authentication library
@@ -66,15 +66,16 @@ router.post("/farm", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/tasks", (req, res) => {
-  Tasks.find({ googleid: req.query.googleid }).then((tasks) => {
+  Task.find({ googleid: req.query.googleid }).then((tasks) => {
     res.send(tasks);
   });
 });
 
-router.post("/tasks", auth.ensureLoggedIn, (req, res) => {
-  const newTasks = new Tasks({
+router.post("/task", auth.ensureLoggedIn, (req, res) => {
+  const newTask = new Task({
     googleid: req.body.googleid,
-    tasks: req.body.tasks,
+    task: req.body.task,
+    date: req.body.date,
   });
 
   newTasks.save().then((tasks) => res.send(tasks));

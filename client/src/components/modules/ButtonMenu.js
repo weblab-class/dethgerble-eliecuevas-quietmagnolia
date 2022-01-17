@@ -1,10 +1,10 @@
 import "./ButtonMenu.css";
-import React, { Component } from "react";
+import React from "react";
 
 
 const ButtonMenu = () => (
 <nav class="btn-pluss-wrapper">
- <div href="#" class="btn-pluss">
+ <div href="#" className="btn-pluss">
   <ul>
     <li> <a href="/">Welcome</a> </li>
     <li><a href="/tasks">Tasks</a></li>

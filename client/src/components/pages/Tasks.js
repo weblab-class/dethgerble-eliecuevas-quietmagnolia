@@ -1,19 +1,64 @@
-import React, { useState, useEffect, Component } from "react";
-import WelcomeImage1 from "../images/welcomefarm1.jpg";
-
+import React, { useState, useEffect} from "react";
+import SingleTask from "../modules/SingleTask.js";
+import NewTask from "../modules/NewTask.js";
+import { get } from "../../utilities";
 
 import "../../utilities.css";
 import "./Tasks.css";
 
-// Defines the Tasks component
+/**
+ * Component to render the Tasks page
+ *
+ * Proptypes
+ * @param {string} userName of user
+ * @param {string} userGoogleId of user
+ */
 
-const Tasks = () => {
+const Tasks = (props) => {
+  const [tasks, setTasks] = useState([]);
+
+  // Get tasks from db, if there are any
+  useEffect(() => {
+    document.title = "Tasks List";
+    get("/api/tasks", {googleid: userGoogleId}).then((taskObjs) => {
+      setTasks(taskObjs);
+    });
+  }, []);
+
+  // Add new Task immediately to the page
+  const addNewTask = (taskObj) => {
+    setTasks([taskObj].concat(tasks));
+  };
+
+  let tasksList = null;
+  const hasTasks = tasks.length !== 0;
+  if (hasTasks) {
+    tasksList = tasks.map((taskObj) => (
+      <NewTask
+        _id={taskObj._id}
+        task={taskObj.task}
+        date={taskObj.date}
+      />
+    ));
+  } else {
+    tasksList = <div>No tasks!</div>;
+  }
+
 
 
   return (
     <>
  
-    <img className = "WelcomeImage" src = {WelcomeImage1}/>
+    {props.userName ? (
+      <>
+      {props.userId && <NewTask addNewTask={addNewTask} />}
+      {tasksList}
+      </>
+    ) : (
+      <>
+      <h1 className = "Tasks-LoggedOut"> You are not logged in. Please log in to view your tasks.</h1>
+      </>
+    )};
 
     </>
   );

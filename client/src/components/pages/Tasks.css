@@ -1,8 +1,7 @@
-.WelcomeImage {
+.Tasks-LoggedOut {
+    font-size: 40px;
+    font-weight: 300;
     position: absolute;
-    height: 80%;
-    width: 100%;
-    object-fit: cover;
     top:187px;
     bottom: 0px;
 }
