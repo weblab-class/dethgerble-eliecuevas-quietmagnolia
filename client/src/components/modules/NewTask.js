@@ -35,7 +35,7 @@ const NewTask = (props) => {
   };
 
   return (
-    <div className="Tasks-BlankScreen">
+    <div className="NewTaskCenter">
       <input
         type="text"
         placeholder="New Task"

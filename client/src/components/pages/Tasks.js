@@ -41,21 +41,21 @@ const Tasks = (props) => {
       />
     ));
   } else {
-    tasksList = <div className="Tasks-BlankScreen">No tasks!</div>
+    tasksList = <h1 className="u-Center">No tasks!</h1>
   }
 
   return (
     <>
     {props.userName ? (
       <>
-      {tasksList}
       {<NewTask addNewTask={addNewTask} />}
+      {tasksList}
       </>
     ) : (
       <>
-      <h1 className = "Tasks-BlankScreen"> You are not logged in. Please log in to view your tasks.</h1>
+      <h1 className="u-Center"> You are not logged in. Please log in to view your tasks.</h1>
       </>
-    )};
+    )}
     </>
   );
 };

@@ -12,40 +12,31 @@ const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.goog
 
 const Navbar = (props) => {
     return (
-
-    <>
-    <span className = "Navbar">
-    <h1 className = "Background"> </h1>
-    <h1 className = "Logo"> uevolve </h1>
-
-
-    <h1 className = "MenuText"> Menu </h1>
-
-    <ButtonMenu/>
-    </span>
-    {props.userId ? (
-
-    <GoogleLogout
-    clientId={GOOGLE_CLIENT_ID}
-
-    buttonText="Logout"
-    onLogoutSuccess={props.handleLogout}
-    onFailure={(err) => console.log(err)}
-    className = "GoogleButton"
-    />
-    ) : (
-    <GoogleLogin
-    clientId={GOOGLE_CLIENT_ID}
-    buttonText="Login"
-    onSuccess={props.handleLogin}
-    onFailure={(err) => console.log(err)}
-    className = "GoogleButton"
-    />
-
-)}
-    </>
-
-);
+        <>
+        <nav className = "Navbar">
+            <span className = "MenuText"> Menu <ButtonMenu /> </span>
+            <div className = "Logo"> uevolve </div>
+            <div> {props.userId ? (
+            <GoogleLogout
+            clientId={GOOGLE_CLIENT_ID}
+            buttonText="Logout"
+            onLogoutSuccess={props.handleLogout}
+            onFailure={(err) => console.log(err)}
+            className = "GoogleButton"
+            />
+            ) : (
+            <GoogleLogin
+            clientId={GOOGLE_CLIENT_ID}
+            buttonText="Login"
+            onSuccess={props.handleLogin}
+            onFailure={(err) => console.log(err)}
+            className = "GoogleButton"
+            />
+            )} 
+            </div>
+        </nav>
+        </>
+    );
 };
 
 export default Navbar;

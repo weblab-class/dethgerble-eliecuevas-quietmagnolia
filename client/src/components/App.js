@@ -13,6 +13,7 @@ import { get, post } from "../utilities";
 import { socket } from "../client-socket.js";
 
 import "../utilities.css";
+import "./App.css";
 
 // Define the "App" component
 
@@ -57,7 +58,7 @@ const App = () => {
       handleLogout={handleLogout}
       userId = {userId}
       /> 
-      <div>
+      <div className = "App=container">
         <Router>
           <Welcome 
           userId = {userId}

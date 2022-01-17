@@ -1,10 +1,5 @@
 .GoogleButton {
     float:none;
-    position:absolute;
-    top: 68px;
-    right: 100px;
-    display:block;
     margin:auto;
-    width:max-content;
   }
 
