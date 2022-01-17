@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
 import "../../utilities.css";
 import "./Navbar.css";
 import "./ButtonMenu.js";
 import ButtonMenu from "./ButtonMenu.js";
-import LoginButton from "./LoginButton.js";
 import "./LoginButton.css";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 

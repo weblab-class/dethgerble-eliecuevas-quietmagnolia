@@ -34,7 +34,7 @@ const Welcome = (props) => {
  
     {props.userId ? (
       <>
-      <h1 className = "TextOnWelcomeImage"> Welcome back,{props.userId} </h1>
+      <h1 className = "TextOnWelcomeImage"> Welcome back, {props.userName}! </h1>
       </>
     ) : (
 

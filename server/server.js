@@ -32,9 +32,7 @@ const auth = require("./auth");
 const socketManager = require("./server-socket");
 
 // Server configuration below
-// TODO change connection URL after setting up your team database
 const mongoConnectionURL = "mongodb+srv://eliec:f5AwCb1FhzOUAARo@cluster0.ahs8j.mongodb.net/evolvedb?retryWrites=true&w=majority";
-// TODO change database name to the name you chose
 const databaseName = "evolvedb";
 
 // connect to mongodb

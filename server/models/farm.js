@@ -6,4 +6,4 @@ const FarmSchema = new mongoose.Schema({
 });
 
 // compile model from schema
-module.exports = mongoose.model("farm", FarmSchema);
+module.exports = mongoose.model("Farm", FarmSchema);

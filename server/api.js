@@ -12,7 +12,8 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 const Farm = require("./models/farm");
-const Todo = require("./models/todo");
+const Tasks = require("./models/tasks");
+const Stats = require("./models/stats");
 
 // import authentication library
 const auth = require("./auth");
@@ -34,7 +35,6 @@ router.get("/whoami", (req, res) => {
     // not logged in
     return res.send({});
   }
-
   res.send(req.user);
 });
 
@@ -65,19 +65,37 @@ router.post("/farm", auth.ensureLoggedIn, (req, res) => {
   newFarm.save().then((farm) => res.send(farm));
 });
 
-router.get("/todo", (req, res) => {
-  Todo.find({ googleid: req.query.googleid }).then((todo) => {
-    res.send(todo);
+router.get("/tasks", (req, res) => {
+  Tasks.find({ googleid: req.query.googleid }).then((tasks) => {
+    res.send(tasks);
   });
 });
 
-router.post("/todo", auth.ensureLoggedIn, (req, res) => {
-  const newTodo = new Todo({
+router.post("/tasks", auth.ensureLoggedIn, (req, res) => {
+  const newTasks = new Tasks({
     googleid: req.body.googleid,
-    todo: req.body.todo,
+    tasks: req.body.tasks,
   });
 
-  newTodo.save().then((todo) => res.send(todo));
+  newTasks.save().then((tasks) => res.send(tasks));
+});
+
+router.get("/stats", (req, res) => {
+  Tasks.find({ googleid: req.query.googleid }).then((stats) => {
+    res.send(stats);
+  });
+});
+
+router.post("/stats", auth.ensureLoggedIn, (req, res) => {
+  const newStats = new Stats({
+    googleid: req.body.googleid,
+    daysonevolve: req.body.daysonevolve,
+    longeststreak : req.body.longeststreak,
+    currentstreak: req.body.currentstreak,
+    taskscompleted: req.body.taskscompleted,
+  });
+
+  newStats.save().then((stats) => res.send(stats));
 });
 
 
