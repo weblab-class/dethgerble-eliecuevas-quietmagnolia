@@ -1,0 +1,8 @@
+.WelcomeImage {
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+    top:187px;
+    bottom: 0px;
+}
