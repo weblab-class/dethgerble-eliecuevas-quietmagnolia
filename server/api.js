@@ -66,7 +66,7 @@ router.post("/farm", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/tasks", (req, res) => {
-  Task.find({ googleid: req.query.googleid }).then((tasks) => {
+  Task.find({}).then((tasks) => {
     res.send(tasks);
   });
 });

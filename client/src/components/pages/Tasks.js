@@ -20,7 +20,7 @@ const Tasks = (props) => {
   // Get tasks from db, if there are any
   useEffect(() => {
     document.title = "Tasks List";
-    get("/api/tasks", {googleid: props.userGoogleId}).then((taskObjs) => {
+    get("/api/tasks").then((taskObjs) => {
       setTasks(taskObjs);
     });
   }, []);

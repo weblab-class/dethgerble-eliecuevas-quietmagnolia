@@ -29,7 +29,7 @@ const App = () => {
         setUserId(user._id);
         setUserName(user.name);
         setUserGoogleId(user.googleid);
-      }
+      };
     });
   }, []);
 

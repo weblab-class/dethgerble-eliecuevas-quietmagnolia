@@ -20,12 +20,14 @@ const SingleTask = (props) => {
     const [compl, setCompl] = useState(props.complete)
 
     const updateTask = () => {
-        let body = {objectId: _id}
+        const body = {objectId: props._id}
         post("/api/updatetask", body).then(() => {
           setCompl(true);
+          console.log('made an api call to update task')
         });
-        body = {googleId: props.userGoogleId}
-        post("/api/updatetaskscompleted", body)
+
+        // TO DO: implement stats and leveling
+        // post("/api/updatetaskscompleted", body)
     };
 
     const handleSubmit = (event) => {
@@ -35,31 +37,20 @@ const SingleTask = (props) => {
 
     return (
         <div className="Card-container">
-            <span className="Card-story">
-                {compl ? (
-                    <>
-                        <button
-                            type="button"
-                            className="NewPostInput-button-complete u-pointer"
-                        >
-                            Done!
-                        </button>
-                    </>
-                ) : (
-                    <>
-                        <button
-                            type="submit"
-                            className="NewPostInput-button u-pointer"
-                            value="Submit"
-                            onClick={handleSubmit}
-                        >
-                            Submit
-                        </button>
-                    </>
-                )}
-                <p className="Card-storyContent">{props.task}</p>
-                <p className="Card-storyContent">{props.date}</p>
-            </span>
+            <div className="Card-story">
+                <button
+                    type="submit"
+                    className="NewPostInput-button u-pointer"
+                    value="Submit"
+                    onClick={handleSubmit}
+                >
+                    Submit
+                </button>
+                <div className="TaskText">
+                    <p className="Card-storyContent">{props.task}</p>
+                    <p className="Card-commentContent"><b>Date Due:</b> {props.date}</p>
+                </div>
+            </div>
         </div>
     );
 };
