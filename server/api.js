@@ -104,6 +104,11 @@ router.post("/stats", auth.ensureLoggedIn, (req, res) => {
   newStats.save().then((stats) => res.send(stats));
 });
 
+router.post("/updatetaskscompleted", auth.ensureLoggedIn, (req, res) => {
+  Stats.updateOne({googleid: req.body.userGoogleId}, {taskscompleted: taskscompleted+1})
+});
+
+
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

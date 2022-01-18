@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 import "./SingleTask.css";
 import "../../utilities.css";
@@ -12,17 +12,20 @@ import "../../utilities.css";
  * @param {string} task to complete
  * @param {Date} date to complete by
  * @param {Boolean} complete whether the task is completed
+ * @param {string} userGoogleId the Google ID of the user
  */
 
 const SingleTask = (props) => {
   
-    const [compl, setCompl] = useState(complete)
+    const [compl, setCompl] = useState(props.complete)
 
     const updateTask = () => {
-        const body = {objectId: _id}
+        let body = {objectId: _id}
         post("/api/updatetask", body).then(() => {
           setCompl(true);
         });
+        body = {googleId: props.userGoogleId}
+        post("/api/updatetaskscompleted", body)
     };
 
     const handleSubmit = (event) => {
