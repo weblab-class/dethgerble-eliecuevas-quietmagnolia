@@ -26,12 +26,14 @@ import "../../utilities.css";
   }
   
 
-const NewFarm = (props) => {
-    const [value, setValue] = useState("")
 
-    const body = {googleid: props.userGoogleId , farm: {create_farm()}};
-    post("/api/farm", body).then((farm) => {
-        console.log("New Farm Made");
-    });
-};
+
+// const NewFarm = (props) => {
+//     const [value, setValue] = useState("")
+
+//     const body = {googleid: props.userGoogleId , farm: {create_farm()}};
+//     post("/api/farm", body).then((farm) => {
+//         console.log("New Farm Made");
+//     });
+// };
 

@@ -50,9 +50,10 @@ router.get("/user", (req, res) => {
   });
 });
 
-router.get("/farm", (req, res) => {
-  Farm.find({ googleid: req.query.googleid }).then((farm) => {
-    res.send(farm);
+router.get("/farms", (req, res) => {
+  Farm.find({ googleid: req.query.googleid }).then((farms) => {
+
+    res.send(farms);
   });
 });
 
