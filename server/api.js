@@ -76,13 +76,18 @@ router.post("/task", auth.ensureLoggedIn, (req, res) => {
     googleid: req.body.googleid,
     task: req.body.task,
     date: req.body.date,
+    complete: req.body.complete,
   });
 
-  newTasks.save().then((tasks) => res.send(tasks));
+  newTask.save().then((tasks) => res.send(tasks));
+});
+
+router.post("/updatetask", auth.ensureLoggedIn, (req, res) => {
+  Task.updateOne({_id: req.body.objectId}, {complete: true})
 });
 
 router.get("/stats", (req, res) => {
-  Tasks.find({ googleid: req.query.googleid }).then((stats) => {
+  Task.find({ googleid: req.query.googleid }).then((stats) => {
     res.send(stats);
   });
 });

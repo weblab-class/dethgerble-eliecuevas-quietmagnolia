@@ -11,7 +11,7 @@ import "./Tasks.css";
  *
  * Proptypes
  * @param {string} userName of user
- * @param {string} userGoogleId of user
+ * @param {string} userGoogleId of users
  */
 
 const Tasks = (props) => {
@@ -38,6 +38,7 @@ const Tasks = (props) => {
         _id={taskObj._id}
         task={taskObj.task}
         date={taskObj.date}
+        complete={taskObj.complete}
       />
     ));
   } else {
@@ -48,7 +49,7 @@ const Tasks = (props) => {
     <>
     {props.userName ? (
       <>
-      {<NewTask addNewTask={addNewTask} />}
+      {<NewTask addNewTask={addNewTask} userGoogleId={props.userGoogleId}/>}
       {tasksList}
       </>
     ) : (

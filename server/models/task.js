@@ -4,6 +4,7 @@ const TaskSchema = new mongoose.Schema({
   googleid: String,
   task: String,
   date: Date,
+  complete: Boolean,
 });
 
 // compile model from schema

@@ -9,13 +9,14 @@ import "../../utilities.css";
  *
  * Proptypes
  * @param {function} addNewTask
+ * @param {string} userGoogleId
  */
 
 const NewTask = (props) => {
   const [value, setValue] = useState("");
 
   const addTask = (value) => {
-    const body = { googleid: value, task: value, date: new Date() };
+    const body = { googleid: props.userGoogleId, task: value, date: new Date(), complete: false};
     post("/api/task", body).then((task) => {
       // display this story on the screen
       props.addNewTask(task);
