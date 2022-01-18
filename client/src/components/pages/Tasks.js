@@ -35,10 +35,12 @@ const Tasks = (props) => {
   if (hasTasks) {
     tasksList = tasks.map((taskObj) => (
       <SingleTask 
+        key={`SingleTask_${taskObj._id}`}
         _id={taskObj._id}
         task={taskObj.task}
         date={taskObj.date}
         complete={taskObj.complete}
+        userGoogleId={taskObj.userGoogleId}
       />
     ));
   } else {
