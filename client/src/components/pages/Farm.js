@@ -11,12 +11,28 @@ import { get, post } from "../../utilities";
 
 let test = "hello"
 let flag = true;
+let array1 = "Loading"
+let array2 = "Loading"
+let array3 = "Loading"
+let array4 = "Loading"
+let array5 = "Loading"
+let array6 = "Loading"
+let array7 = "Loading"
+let array8 = "Loading"
+let array9 = "Loading"
+let array10 = "Loading"
+
 
 const Farm = ( props ) => {
 
+//console.log(props.userGoogleId)
 
    const [farm, setFarm] = useState([]);
 
+
+
+
+   
     document.title = "Farm";
     let test = "hi";
     //console.log(props.googleid);
@@ -46,17 +62,27 @@ const Farm = ( props ) => {
   const farmExists = farm.length !== 0;
   if (farmExists) {
 
-    //console.log("Farm exists");
-    test = farm.toString();
+    console.log("Farm exists");
+    console.log(farm[0].farm[1]);
+    array1 = farm[0].farm[0].toString();
+    array2 = farm[0].farm[1].toString();
+    array3 = farm[0].farm[2].toString();
+    array4 = farm[0].farm[3].toString();
+    array5 = farm[0].farm[4].toString();
+    array6 = farm[0].farm[5].toString();
+    array7 = farm[0].farm[6].toString();
+    array8 = farm[0].farm[7].toString();
+    array9 = farm[0].farm[8].toString();
+    array10 = farm[0].farm[9].toString();
+
+    console.log(array1);
+    
 
   } else {
 
-    const flag2 = (props.userGoogleId instanceof String);
 
-    if (flag){
-      if (flag2){
 
-    //console.log("Farm doesn't exist");
+    console.log("Farm doesn't exist");
 
     const newFarm = [];
     for (let i = 0; i < 10; i++) {
@@ -68,6 +94,7 @@ const Farm = ( props ) => {
     
     }
 
+    console.log(props.userGoogleId)
     const body1 = {googleid: props.userGoogleId , farm: newFarm};
     flag = false;
 
@@ -75,20 +102,60 @@ const Farm = ( props ) => {
         //console.log("New Farm Made");
     });
 
-  }
-    }
+    array1 = newFarm[0].toString();
+    array2 = newFarm[1].toString();
+    array3 = newFarm[2].toString();
+    array4 = newFarm[3].toString();
+    array5 = newFarm[4].toString();
+    array6 = newFarm[5].toString();
+    array7 = newFarm[6].toString();
+    array8 = newFarm[7].toString();
+    array9 = newFarm[8].toString();
+    array10 = newFarm[9].toString();
+
+    console.log(array1);
+
   }
 
+
+  // (async() => {
+  //   while(!window.hasOwnProperty(array1)){
+  //   await new Promise(resolve => setTimeout(resolve,1000));
+  //   }
+  // })();
+
+  // function waitForArray1(){
+  //   if (typeof array1 !== "undefined"){
+  //     console.log('yes');
+  //   } else{
+  //     setTimeout(waitForArray1, 250);
+  //   }
+  // }
+  
+  // waitForArray1();
+  
   return (
     <>
 
+
+
+
     {props.userName ? (
       <>
-      <p> {test} </p>
+      <p> {array1} </p>
+      <p> {array2} </p>
+      <p> {array3} </p>
+      <p> {array4} </p>
+      <p> {array5} </p>
+      <p> {array6} </p>
+      <p> {array7} </p>
+      <p> {array8} </p>
+      <p> {array9} </p>
+      <p> {array10} </p>
       </>
     ) : (
       <>
-      <h1 className="u-Center"> You are not logged in. Please log in to view your tasks.</h1>
+      <h1 className="u-Center"> You are not logged in. Please log in to view your farm.</h1>
       </>
     )}
     </>

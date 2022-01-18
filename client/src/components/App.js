@@ -21,7 +21,7 @@ const App = () => {
   const [userId, setUserId] = useState(undefined);
   const [userName, setUserName] = useState(undefined);
   const [userGoogleId, setUserGoogleId] = useState(undefined);
-  let isLoggedIn = false;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -30,6 +30,8 @@ const App = () => {
         setUserId(user._id);
         setUserName(user.name);
         setUserGoogleId(user.googleid);
+        console.log('here');
+        setIsLoggedIn(true);
       }
     });
   }, []);
@@ -44,7 +46,7 @@ const App = () => {
       setUserName(user.name);
       setUserGoogleId(user.googleid);
       post("/api/initsocket", { socketid: socket.id });
-      isLoggedIn = true;
+      setIsLoggedIn(true);
     });
   };
 
@@ -53,24 +55,26 @@ const App = () => {
     setUserName(undefined);
     setUserGoogleId(undefined);
     post("/api/logout");
+    setIsLoggedIn(false);
   };
 
-  function waitForId(id){
-    const flag = (id instanceof String);
-    if (flag) {
-      console.log("Got it!");
-    } else {
-      setTimeout(waitForId(id), 300);
-    }
+  // function waitForId(){
+  //   if (typeof userGoogleId === 'string') {
+  //     console.log("Got it!");
+  //   } else {
+  //     setTimeout(waitForId(), 300);
+  //   }
 
-  };
+  // };
 
-console.log(isLoggedIn);
+//console.log(isLoggedIn);
 
-  if (isLoggedIn){
-    console.log('here');
-  waitForId(userGoogleId);
-  }
+//   if (isLoggedIn){
+// //    console.log('here');
+//   waitForId();
+//   }
+
+  //console.log(userGoogleId)
 
   return (
     <>
