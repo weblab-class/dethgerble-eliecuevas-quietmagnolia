@@ -6,6 +6,7 @@ import "./ButtonMenu.js";
 import ButtonMenu from "./ButtonMenu.js";
 import "./LoginButton.css";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
+import Nav from "./Nav.js";
 
 
 const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.googleusercontent.com";
@@ -14,7 +15,7 @@ const Navbar = (props) => {
     return (
         <>
         <nav className = "Navbar">
-            <span className = "MenuText"> Menu <ButtonMenu /> </span>
+            <Nav/>
             <div className = "Logo"> uevolve </div>
             <div> {props.userId ? (
             <GoogleLogout

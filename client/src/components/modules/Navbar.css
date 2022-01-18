@@ -24,6 +24,8 @@
     font-weight: bold;
     font-size: 24px;
     color: #0AA8B2;
+    position: relative;
+    left: 10%;
 }
 
 .triangle { /* not in use as of now */

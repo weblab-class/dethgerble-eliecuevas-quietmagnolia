@@ -1,5 +1,7 @@
 .GoogleButton {
     float:none;
-    margin:auto;
+    right: 120%;
+    margin: auto;
+    position: relative;
   }
 
