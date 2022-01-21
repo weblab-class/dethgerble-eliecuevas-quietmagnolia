@@ -23,7 +23,7 @@ const Tasks = (props) => {
     get("/api/tasks", {googleid: props.userGoogleId}).then((taskObjs) => {
       setTasks(taskObjs);
     });
-  }, []);
+  }, [props.userGoogleId]);
 
   // Add new Task immediately to the page
   const addNewTask = (taskObj) => {

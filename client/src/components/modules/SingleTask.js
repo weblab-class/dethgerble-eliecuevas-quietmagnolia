@@ -20,12 +20,12 @@ const SingleTask = (props) => {
     const [compl, setCompl] = useState(props.complete)
 
     const updateTask = () => {
-        let body = {objectId: _id}
+        let body = {objectId: props._id}
         post("/api/updatetask", body).then(() => {
           setCompl(true);
         });
         body = {googleId: props.userGoogleId}
-        post("/api/updatetaskscompleted", body)
+        // post("/api/updatetaskscompleted", body)
     };
 
     const handleSubmit = (event) => {

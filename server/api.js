@@ -84,7 +84,12 @@ router.post("/task", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post("/updatetask", auth.ensureLoggedIn, (req, res) => {
-  Task.updateOne({_id: req.body.objectId}, {complete: true})
+  console.log(req.body)
+  Task.findOne({_id: req.body.objectId}).then((task) => {
+    task.complete = true
+    task.save()
+    console.log(task)
+  });
 });
 
 router.get("/stats", (req, res) => {
