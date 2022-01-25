@@ -40,7 +40,6 @@ const Farm = ( props ) => {
     useEffect(() => {
       if (props.userGoogleId) {
     get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
-      console.log("here");
       setFarm(farmObj);
 
     });
@@ -65,10 +64,11 @@ const Farm = ( props ) => {
   useEffect(() => {
 
   const farmExists = farm.length !== 0;
+  console.log("Searching for existing farm...");
   if (farmExists) {
 
     console.log("Farm exists");
-    console.log(farm);
+
     //console.log(farm[0].farm[1]);
     setArray1 ( farm[0].farm[0].toString());
     setArray2 ( farm[0].farm[1].toString());
@@ -88,8 +88,9 @@ const Farm = ( props ) => {
 
     
 
-    //console.log("Farm doesn't exist");
+
     if (props.userGoogleId) {
+      console.log("Farm doesn't exist: Creating new farm...");
     const newFarm = [];
     for (let i = 0; i < 10; i++) {
       const row = [];
@@ -100,23 +101,23 @@ const Farm = ( props ) => {
     
     }
 
-    console.log(props.userGoogleId)
+    //console.log(props.userGoogleId)
     const body1 = {googleid: props.userGoogleId , farm: newFarm};
 
     post("/api/farm", body1).then((farm) => {
         console.log("New Farm Made");
     });
 
-    setArray1 ( farm[0].farm[0].toString());
-    setArray2 ( farm[0].farm[1].toString());
-    setArray3 ( farm[0].farm[2].toString());
-    setArray4 ( farm[0].farm[3].toString());
-    setArray5 ( farm[0].farm[4].toString());
-    setArray6 ( farm[0].farm[5].toString());
-    setArray7 ( farm[0].farm[6].toString());
-    setArray8 ( farm[0].farm[7].toString());
-    setArray9 ( farm[0].farm[8].toString());
-    setArray10 ( farm[0].farm[9].toString());
+    setArray1 ( newFarm[0].toString());
+    setArray2 ( newFarm[1].toString());
+    setArray3 ( newFarm[2].toString());
+    setArray4 ( newFarm[3].toString());
+    setArray5 ( newFarm[4].toString());
+    setArray6 ( newFarm[5].toString());
+    setArray7 ( newFarm[6].toString());
+    setArray8 ( newFarm[7].toString());
+    setArray9 ( newFarm[8].toString());
+    setArray10 ( newFarm[9].toString());
 
     // console.log(array1);
   }
