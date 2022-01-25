@@ -77,7 +77,6 @@ const SingleTask = (props) => {
             <span className="Card-story">
                 {<TasksButton submitted={compl} handleSubmit={handleSubmit}/>}
                 <p className="Card-storyContent">{props.task}</p>
-                <p className="Card-storyContent">{props.date}</p>
             </span>
         </div>
     );
