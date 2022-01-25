@@ -66,45 +66,47 @@ const App = () => {
 
   return (
     <>
-      <Navbar 
-      handleLogin = {handleLogin}
-      handleLogout={handleLogout}
-      userId = {userId}
-      /> 
-      <div>
-        <Router>
-          <Welcome 
-          userId = {userId}
-          userName = {userName}
-          userGoogleId = {userGoogleId}
-          path = "/" />
-          <Farm 
-          userName = {userName}
-          userGoogleId = {userGoogleId}
-          path = "/farm" />
-          <Tasks
-          userName = {userName}
-          userGoogleId = {userGoogleId}
-          path="/tasks" />
-          <Friends
-          userName = {userName}
-          userGoogleId = {userGoogleId}
-          path='/friends/' />
-          <Stats
-          userName = {userName}
-          userGoogleId = {userGoogleId}
-          path="/stats" />
-          <About
-          userName = {userName}
-          userGoogleId = {userGoogleId}
-          path="/about" /> 
-          <Profile 
-          userName = {userName}
-          userGoogleId = {userGoogleId}
-          path="/profile" />
-          <NotFound default />
-        </Router>
-      </div> 
+      <div className="web-app-container">
+        <Navbar 
+        handleLogin = {handleLogin}
+        handleLogout={handleLogout}
+        userId = {userId}
+        /> 
+        <div className="app-box">
+          <Router>
+            <Welcome 
+            userId = {userId}
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path = "/" />
+            <Farm 
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path = "/farm" />
+            <Tasks
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path="/tasks" />
+            <Friends
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path='/friends/' />
+            <Stats
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path="/stats" />
+            <About
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path="/about" /> 
+            <Profile 
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path="/profile" />
+            <NotFound default />
+          </Router>
+        </div> 
+      </div>
     </>
   );
 };

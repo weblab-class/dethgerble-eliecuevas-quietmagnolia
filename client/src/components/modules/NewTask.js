@@ -36,7 +36,15 @@ const NewTask = (props) => {
   };
 
   return (
-    <div className="NewTaskCenter">
+    <div className="newtask-container">
+      <button
+        type="submit"
+        className="NewPostInput-button u-pointer"
+        value="Submit"
+        onClick={handleSubmit}
+      >
+        +
+      </button>
       <input
         type="text"
         placeholder="New Task"
@@ -44,14 +52,6 @@ const NewTask = (props) => {
         onChange={handleChange}
         className="NewPostInput-input"
       />
-      <button
-        type="submit"
-        className="NewPostInput-button u-pointer"
-        value="Submit"
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
     </div>
   );
 };

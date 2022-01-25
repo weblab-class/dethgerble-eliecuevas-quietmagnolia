@@ -6,7 +6,7 @@
   }
 
 .Tasks-background {
-    background-image: url("../images/blurred_farm.jpg");
+    background-color: var(--cultured);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
