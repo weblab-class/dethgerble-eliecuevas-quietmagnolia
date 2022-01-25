@@ -1,0 +1,14 @@
+.NewPostInput-button-complete {
+    font-family: "Open Sans";
+    font-size: 14px;
+    padding: var(--s) var(--m);
+    background-color: #0a6416
+    
+  }
+  
+  .NewPostInput-button {
+    font-family: "Open Sans";
+    font-size: 14px;
+    padding: var(--s) var(--m);
+    background-color: #ffffff
+  }

@@ -1,7 +1,8 @@
-.Card-container {
-  border: var(--darkgrey) 1px solid;
-  border-radius: var(--xs);
+.task-container {
+  border: var(--darkgrey) 2px solid;
+  border-radius: var(--m);
   margin-top: var(--m);
+  background-color: var(--white);
 }
   
 .Card-container:first-of-type {
@@ -11,6 +12,8 @@
 .Card-story,
 .Card-commentSection {
   padding: var(--m) var(--l);
+  display: flex;
+  justify-content: center;
 }
 
 .Card-storyUser {
@@ -21,6 +24,7 @@
 .Card-storyContent {
   font-size: 40px;
   margin: var(--s) 0 0;
+  text-align: center;
 }
 
 .Card-commentSection {
@@ -36,7 +40,8 @@
   font-family: "Open Sans";
   font-size: 14px;
   padding: var(--s) var(--m);
-  background-color: #0a6416
+  background-color: #0a6416;
+  border-radius: 30%;
 }
 
 .NewPostInput-button {

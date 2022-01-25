@@ -1,0 +1,15 @@
+.App-container {
+    max-width: 960px;
+    padding: var(--m) var(--m);
+    margin: auto;
+    background-image: "../images/blurred_farm.jpg";
+  }
+
+.Tasks-background {
+    background-image: url("../images/blurred_farm.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    background-size: cover;
+}

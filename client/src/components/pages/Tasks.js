@@ -49,16 +49,20 @@ const Tasks = (props) => {
 
   return (
     <>
-    {props.userName ? (
-      <>
-      {<NewTask addNewTask={addNewTask} userGoogleId={props.userGoogleId}/>}
-      {tasksList}
-      </>
-    ) : (
-      <>
-      <h1 className="u-Center"> You are not logged in. Please log in to view your tasks.</h1>
-      </>
-    )}
+      <div className = "Tasks-background">
+          <div className = "App-container">
+          {props.userName ? (
+            <>
+            {<NewTask addNewTask={addNewTask} userGoogleId={props.userGoogleId}/>}
+            {tasksList}
+            </>
+          ) : (
+            <>
+            <h1 className="u-Center"> You are not logged in. Please log in to view your tasks.</h1>
+            </>
+          )}
+          </div>
+      </div>
     </>
   );
 };

@@ -42,7 +42,7 @@ const SingleTask = (props) => {
     };
 
     return (
-        <div className="Card-container">
+        <div className="task-container">
             <span className="Card-story">
                 {<TasksButton submitted={compl} handleSubmit={handleSubmit}/>}
                 <p className="Card-storyContent">{props.task}</p>
