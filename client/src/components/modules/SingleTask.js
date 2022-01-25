@@ -26,9 +26,7 @@ const SingleTask = (props) => {
     useEffect(() => {
         if (props.userGoogleId) {
       get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
-        console.log(farmObj[0].farm);
-        setFarm(farmObj[0].farm);
-        console.log(farm);
+        setFarm(farmObj);
 
   
       });
@@ -36,21 +34,10 @@ const SingleTask = (props) => {
 
 
 
-    const updateTask = () => {
-        let body = {objectId: props._id}
-        post("/api/updatetask", body).then(() => {
-          setCompl(true);
-        });
-        updateTasksCompleted();
-    };
+    useEffect(() => {
 
-    const updateTasksCompleted = () => {
-        get("/api/stats", {googleid: props.userGoogleId}).then((stats) => {
-            console.log(stats)
-            // const body = {objectId: stats._id}
-            // post("/api/updatetaskscompleted", body)                
-        });
-    };
+
+}, [farm]);
 
     function changeRandomLocation(farm) {
         console.log(farm);
@@ -71,34 +58,44 @@ const SingleTask = (props) => {
         return farm
     }
 
+    const updateTask = () => {
+        let body = {objectId: props._id}
+        post("/api/updatetask", body).then(() => {
+          setCompl(true);
+        });
+        updateTasksCompleted();
+    };
 
-
+    const updateTasksCompleted = () => {
+        get("/api/stats", {googleid: props.userGoogleId}).then((stats) => {
+            console.log(stats)
+            // const body = {objectId: stats._id}
+            // post("/api/updatetaskscompleted", body)                
+        });
+    };
 
 
     const handleSubmit = (event) => {
         event.preventDefault();
         
 
-
-
-
-        console.log(props.userGoogleId);
-
-        console.log(farm);
-
-
-        let newFarm = changeRandomLocation(farm.farm);
+        if (farm[0].farm !== []) {
+        let newFarm = changeRandomLocation(farm[0].farm);
+        
 
         let body = {googleid: props.userGoogleId, newfarm: newFarm};
         post("/api/updatefarm", body);
 
-            
+        console.log("Farm Updated");
+        }
 
 
 
 
         updateTask();
+        console.log("Task Submitted");
     };
+
 
 
     return (
