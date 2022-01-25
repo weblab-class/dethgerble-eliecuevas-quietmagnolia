@@ -17,12 +17,46 @@ import "./Tasks.css";
 
 const Tasks = (props) => {
   const [tasks, setTasks] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+        setIsOpen(!isOpen);
+  };
+
+  const compareTasks = (a, b) => {
+    let aDate = Date.parse(a.date)
+    let bDate = Date.parse(b.date)
+
+    if (a.complete && b.complete) {
+      if (aDate > bDate) {
+        return -1
+      } else {
+        return 1
+      };
+    };
+    if (a.complete) {
+      return 1;
+    };
+    if (b.complete) {
+      return -1;
+    };
+    if (!a.complete && !b.complete) {
+      if (aDate > bDate) {
+        return -1
+      } else {
+        return 1
+      };
+    };
+    return 0
+  };
 
   // Get tasks from db, if there are any
   useEffect(() => {
     document.title = "Tasks List";
     get("/api/tasks", {googleid: props.userGoogleId}).then((taskObjs) => {
-      setTasks(taskObjs);
+      let reversedTaskObjs = taskObjs.reverse();
+      reversedTaskObjs.sort(compareTasks)
+      setTasks(reversedTaskObjs);
     });
   }, [props.userGoogleId]);
 
@@ -42,6 +76,7 @@ const Tasks = (props) => {
         date={taskObj.date}
         complete={taskObj.complete}
         userGoogleId={taskObj.googleid}
+        callTaskDonePopup={togglePopup}
       />
     ));
   } else {
@@ -54,6 +89,7 @@ const Tasks = (props) => {
           <div className = "App-container">
           {props.userName ? (
             <>
+            {isOpen && <TaskDonePopup handleClose={togglePopup} />}
             {<NewTask addNewTask={addNewTask} userGoogleId={props.userGoogleId}/>}
             {tasksList}
             </>

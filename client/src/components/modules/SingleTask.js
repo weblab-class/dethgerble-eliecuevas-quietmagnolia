@@ -14,30 +14,24 @@ import "../../utilities.css";
  * @param {Date} date to complete by
  * @param {Boolean} complete whether the task is completed
  * @param {string} userGoogleId the Google ID of the user
+ * @param {function} callTaskDonePopup function that brings up a popup
  */
 
 const SingleTask = (props) => {
   
     const [compl, setCompl] = useState(props.complete);
     const [farm, setFarm] = useState([]);
-    
-    
 
     useEffect(() => {
         if (props.userGoogleId) {
-      get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
-        setFarm(farmObj);
-
-  
-      });
-      }}, [props.userGoogleId]);
-
-
+            get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
+                setFarm(farmObj);
+            });
+      };
+    }, [props.userGoogleId]);
 
     useEffect(() => {
-
-
-}, [farm]);
+    }, [farm]);
 
     function changeRandomLocation(farm) {
         console.log(farm);
@@ -63,40 +57,20 @@ const SingleTask = (props) => {
         post("/api/updatetask", body).then(() => {
           setCompl(true);
         });
-        updateTasksCompleted();
+        props.callTaskDonePopup();
     };
-
-    const updateTasksCompleted = () => {
-        get("/api/stats", {googleid: props.userGoogleId}).then((stats) => {
-            console.log(stats)
-            // const body = {objectId: stats._id}
-            // post("/api/updatetaskscompleted", body)                
-        });
-    };
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-
         if (farm[0].farm !== []) {
-        let newFarm = changeRandomLocation(farm[0].farm);
-        
-
-        let body = {googleid: props.userGoogleId, newfarm: newFarm};
-        post("/api/updatefarm", body);
-
-        console.log("Farm Updated");
-        }
-
-
-
-
+            let newFarm = changeRandomLocation(farm[0].farm);
+            let body = {googleid: props.userGoogleId, newfarm: newFarm};
+            post("/api/updatefarm", body);
+            console.log("Farm Updated");
+        };
         updateTask();
         console.log("Task Submitted");
     };
-
-
 
     return (
         <div className="task-container">
