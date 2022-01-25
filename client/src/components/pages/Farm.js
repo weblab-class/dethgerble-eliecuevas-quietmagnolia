@@ -10,22 +10,21 @@ import { get, post } from "../../utilities";
 // Defines the Farm component
 
 let test = "hello"
-let flag = true;
-let array1 = "Loading"
-let array2 = "Loading"
-let array3 = "Loading"
-let array4 = "Loading"
-let array5 = "Loading"
-let array6 = "Loading"
-let array7 = "Loading"
-let array8 = "Loading"
-let array9 = "Loading"
-let array10 = "Loading"
 
 
 const Farm = ( props ) => {
 
 //console.log(props.userGoogleId)
+  const [array1, setArray1] = useState("Loading");
+  const [array2, setArray2] = useState("Loading");
+  const [array3, setArray3] = useState("Loading");
+  const [array4, setArray4] = useState("Loading");
+  const [array5, setArray5] = useState("Loading");
+  const [array6, setArray6] = useState("Loading");
+  const [array7, setArray7] = useState("Loading");
+  const [array8, setArray8] = useState("Loading");
+  const [array9, setArray9] = useState("Loading");
+  const [array10, setArray10] = useState("Loading");
 
    const [farm, setFarm] = useState([]);
 
@@ -36,11 +35,17 @@ const Farm = ( props ) => {
     document.title = "Farm";
     let test = "hi";
     //console.log(props.googleid);
+
+
+    useEffect(() => {
+      if (props.userGoogleId) {
     get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
-      //console.log("here");
+      console.log("here");
       setFarm(farmObj);
 
     });
+    }}, [props.userGoogleId]);
+
 
 
   const addNewFarm = (farmObj) => {
@@ -59,31 +64,34 @@ const Farm = ( props ) => {
   //   });
   // };
 
+  useEffect(() => {
+
   const farmExists = farm.length !== 0;
   if (farmExists) {
 
     console.log("Farm exists");
-    console.log(farm[0].farm[1]);
-    array1 = farm[0].farm[0].toString();
-    array2 = farm[0].farm[1].toString();
-    array3 = farm[0].farm[2].toString();
-    array4 = farm[0].farm[3].toString();
-    array5 = farm[0].farm[4].toString();
-    array6 = farm[0].farm[5].toString();
-    array7 = farm[0].farm[6].toString();
-    array8 = farm[0].farm[7].toString();
-    array9 = farm[0].farm[8].toString();
-    array10 = farm[0].farm[9].toString();
+    console.log(farm);
+    //console.log(farm[0].farm[1]);
+    setArray1 ( farm[0].farm[0].toString());
+    setArray2 ( farm[0].farm[1].toString());
+    setArray3 ( farm[0].farm[2].toString());
+    setArray4 ( farm[0].farm[3].toString());
+    setArray5 ( farm[0].farm[4].toString());
+    setArray6 ( farm[0].farm[5].toString());
+    setArray7 ( farm[0].farm[6].toString());
+    setArray8 ( farm[0].farm[7].toString());
+    setArray9 ( farm[0].farm[8].toString());
+    setArray10 ( farm[0].farm[9].toString());
 
-    console.log(array1);
+    //console.log(array1);
     
 
   } else {
 
+    
 
-
-    console.log("Farm doesn't exist");
-
+    //console.log("Farm doesn't exist");
+    if (props.userGoogleId) {
     const newFarm = [];
     for (let i = 0; i < 10; i++) {
       const row = [];
@@ -96,27 +104,28 @@ const Farm = ( props ) => {
 
     console.log(props.userGoogleId)
     const body1 = {googleid: props.userGoogleId , farm: newFarm};
-    flag = false;
 
     post("/api/farm", body1).then((farm) => {
-        //console.log("New Farm Made");
+        console.log("New Farm Made");
     });
 
-    array1 = newFarm[0].toString();
-    array2 = newFarm[1].toString();
-    array3 = newFarm[2].toString();
-    array4 = newFarm[3].toString();
-    array5 = newFarm[4].toString();
-    array6 = newFarm[5].toString();
-    array7 = newFarm[6].toString();
-    array8 = newFarm[7].toString();
-    array9 = newFarm[8].toString();
-    array10 = newFarm[9].toString();
+    setArray1 ( farm[0].farm[0].toString());
+    setArray2 ( farm[0].farm[1].toString());
+    setArray3 ( farm[0].farm[2].toString());
+    setArray4 ( farm[0].farm[3].toString());
+    setArray5 ( farm[0].farm[4].toString());
+    setArray6 ( farm[0].farm[5].toString());
+    setArray7 ( farm[0].farm[6].toString());
+    setArray8 ( farm[0].farm[7].toString());
+    setArray9 ( farm[0].farm[8].toString());
+    setArray10 ( farm[0].farm[9].toString());
 
-    console.log(array1);
-
+    // console.log(array1);
   }
 
+
+  };
+}, [farm]);
 
   // (async() => {
   //   while(!window.hasOwnProperty(array1)){
