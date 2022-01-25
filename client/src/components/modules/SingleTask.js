@@ -18,7 +18,23 @@ import "../../utilities.css";
 
 const SingleTask = (props) => {
   
-    const [compl, setCompl] = useState(props.complete)
+    const [compl, setCompl] = useState(props.complete);
+    const [farm, setFarm] = useState([]);
+    
+    
+
+    useEffect(() => {
+        if (props.userGoogleId) {
+      get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
+        console.log(farmObj[0].farm);
+        setFarm(farmObj[0].farm);
+        console.log(farm);
+
+  
+      });
+      }}, [props.userGoogleId]);
+
+
 
     const updateTask = () => {
         let body = {objectId: props._id}
@@ -37,6 +53,7 @@ const SingleTask = (props) => {
     };
 
     function changeRandomLocation(farm) {
+        console.log(farm);
         let locations = Array();
 
         // find all open positions in array
@@ -57,11 +74,6 @@ const SingleTask = (props) => {
 
 
 
-    function test() {
-        post("/api/deletefarm", {googleid: props.userGoogleId});
-        console.log("farm deleted");
-    }
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -70,14 +82,24 @@ const SingleTask = (props) => {
 
 
 
-        console.log('Hello');
-        test();
+        console.log(props.userGoogleId);
+
+        console.log(farm);
+
+
+        let newFarm = changeRandomLocation(farm.farm);
+
+        let body = {googleid: props.userGoogleId, newfarm: newFarm};
+        post("/api/updatefarm", body);
+
+            
 
 
 
 
         updateTask();
     };
+
 
     return (
         <div className="task-container">

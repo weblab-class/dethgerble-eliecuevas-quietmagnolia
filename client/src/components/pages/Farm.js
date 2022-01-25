@@ -48,9 +48,7 @@ const Farm = ( props ) => {
 
 
 
-  const addNewFarm = (farmObj) => {
-    setFarm([farmObj]);
-  }
+
 
   //console.log(farm)
   const isArray1 = Array.isArray(farm);

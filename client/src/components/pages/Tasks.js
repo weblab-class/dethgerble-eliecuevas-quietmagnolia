@@ -40,7 +40,7 @@ const Tasks = (props) => {
         task={taskObj.task}
         date={taskObj.date}
         complete={taskObj.complete}
-        userGoogleId={taskObj.userGoogleId}
+        userGoogleId={taskObj.googleid}
       />
     ));
   } else {

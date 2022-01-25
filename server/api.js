@@ -57,9 +57,9 @@ router.get("/farms", (req, res) => {
   });
 });
 
-router.post("/deletefarm", auth.ensureLoggedIn, (req, res) => {
+router.post("/updatefarm", auth.ensureLoggedIn, (req, res) => {
   Farm.findOne({googleid: req.body.googleid}).then((farm) => {
-    farm.farm = "Hello";
+    farm.farm = req.body.newfarm;
     farm.save();
   })
 
