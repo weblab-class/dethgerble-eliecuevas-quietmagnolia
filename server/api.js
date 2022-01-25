@@ -84,16 +84,14 @@ router.post("/task", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post("/updatetask", auth.ensureLoggedIn, (req, res) => {
-  console.log(req.body)
   Task.findOne({_id: req.body.objectId}).then((task) => {
     task.complete = true
     task.save()
-    console.log(task)
   });
 });
 
 router.get("/stats", (req, res) => {
-  Task.find({ googleid: req.query.googleid }).then((stats) => {
+  Stats.find({ googleid: req.query.googleid }).then((stats) => {
     res.send(stats);
   });
 });
@@ -101,9 +99,6 @@ router.get("/stats", (req, res) => {
 router.post("/stats", auth.ensureLoggedIn, (req, res) => {
   const newStats = new Stats({
     googleid: req.body.googleid,
-    daysonevolve: req.body.daysonevolve,
-    longeststreak : req.body.longeststreak,
-    currentstreak: req.body.currentstreak,
     taskscompleted: req.body.taskscompleted,
   });
 
@@ -111,7 +106,10 @@ router.post("/stats", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post("/updatetaskscompleted", auth.ensureLoggedIn, (req, res) => {
-  Stats.updateOne({googleid: req.body.userGoogleId}, {taskscompleted: taskscompleted+1})
+  Stats.findOne({_id: req.body.objectId}).then((stats) => {
+    stats.taskscompleted = stats.taskscompleted + 1
+    stats.save()
+  });
 });
 
 

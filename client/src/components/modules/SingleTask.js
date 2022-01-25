@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { get, post } from "../../utilities";
+import TasksButton from "./TasksButton";
 
 import "./SingleTask.css";
 import "../../utilities.css";
@@ -24,8 +25,15 @@ const SingleTask = (props) => {
         post("/api/updatetask", body).then(() => {
           setCompl(true);
         });
-        body = {googleId: props.userGoogleId}
-        // post("/api/updatetaskscompleted", body)
+        updateTasksCompleted();
+    };
+
+    const updateTasksCompleted = () => {
+        get("/api/stats", {googleid: props.userGoogleId}).then((stats) => {
+            console.log(stats)
+            // const body = {objectId: stats._id}
+            // post("/api/updatetaskscompleted", body)                
+        });
     };
 
     const handleSubmit = (event) => {
@@ -36,27 +44,7 @@ const SingleTask = (props) => {
     return (
         <div className="Card-container">
             <span className="Card-story">
-                {compl ? (
-                    <>
-                        <button
-                            type="button"
-                            className="NewPostInput-button-complete u-pointer"
-                        >
-                            Done!
-                        </button>
-                    </>
-                ) : (
-                    <>
-                        <button
-                            type="submit"
-                            className="NewPostInput-button u-pointer"
-                            value="Submit"
-                            onClick={handleSubmit}
-                        >
-                            Submit
-                        </button>
-                    </>
-                )}
+                {<TasksButton submitted={compl} handleSubmit={handleSubmit}/>}
                 <p className="Card-storyContent">{props.task}</p>
                 <p className="Card-storyContent">{props.date}</p>
             </span>
