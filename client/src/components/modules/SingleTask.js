@@ -36,8 +36,46 @@ const SingleTask = (props) => {
         });
     };
 
+    function changeRandomLocation(farm) {
+        let locations = Array();
+
+        // find all open positions in array
+        for (let x = 0; x < farm.length; x++){
+            for (let y = 0; y < farm.length; y++) {
+                if (farm[x][y] === '-') {
+                    locations.push([x, y]);
+                }
+            }
+        }
+        // update random location
+        let random_location = locations[Math.floor(Math.random() * locations.length)];
+        farm[random_location[0]][random_location[1]] = '+';
+
+        return farm
+    }
+
+
+
+
+    function test() {
+        post("/api/deletefarm", {googleid: props.userGoogleId});
+        console.log("farm deleted");
+    }
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        
+
+
+
+
+        console.log('Hello');
+        test();
+
+
+
+
         updateTask();
     };
 
