@@ -14,20 +14,19 @@
 }
  ul {
 	 display: flex;
-	 text-align: left;
+	 text-align: center;
 	 margin: 0 auto;
 	 padding: 0;
 	 width: 100%;
 	 min-width: 535px;
-	 background-color: #ededed;
+	 background-color: #091820;
 	 position: relative;
-     right: 30%;
 	 box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
      height: 80%;
 }
  ul:after {
 	 content: "";
-	 position: absolute;
+	 position: relative;
 	 top: 0;
 	 left: 0;
 	 width: 100%;
@@ -47,7 +46,7 @@
 	 position: relative;
 	 z-index: 2;
 	 text-shadow: 1px 0px rgba(0, 0, 0, .4);
-	 color: #686f77;
+	 color: white;
 	 letter-spacing: 0.2em;
 	 text-decoration: none;
 	 transition: color 200ms;
@@ -62,7 +61,9 @@
 	 display: block;
 	 text-shadow: none;
 	 top: 29%;
-	 left: 18px;
+	 margin: auto;
+	 left: 0;
+	 right: 0;
 	 padding: 5px 7px;
 	 color: transparent;
 	 background: #4795c3;
@@ -89,6 +90,6 @@
 .MenuSpan{
 
     position: relative;
-    display: inline-block;
+	align-items: center;
     margin-left: 0 auto;
 }

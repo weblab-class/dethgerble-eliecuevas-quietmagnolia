@@ -1,7 +1,7 @@
 import "./ButtonMenu.css";
 import React from "react";
-/* bring this line in to actually work on menu 
-import "./Nav.css"; */
+
+import "./Nav.css"; 
 
 const Nav = () => (
 

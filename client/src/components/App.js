@@ -9,6 +9,7 @@ import Welcome from "./pages/Welcome.js";
 import Tasks from "./pages/Tasks.js";
 import Stats from "./pages/Stats.js";
 import About from "./pages/About.js";
+import NewUser from "./pages/NewUser.js";
 import { get, post } from "../utilities";
 import { socket } from "../client-socket.js";
 
@@ -78,7 +79,9 @@ const App = () => {
             userId = {userId}
             userName = {userName}
             userGoogleId = {userGoogleId}
-            path = "/" />
+            path = "/" 
+            handleLogin = {handleLogin}
+            handleLogout={handleLogout}/>
             <Farm 
             userName = {userName}
             userGoogleId = {userGoogleId}
@@ -103,6 +106,11 @@ const App = () => {
             userName = {userName}
             userGoogleId = {userGoogleId}
             path="/profile" />
+            <NewUser
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path = "/newuser" />
+
             <NotFound default />
           </Router>
         </div> 
