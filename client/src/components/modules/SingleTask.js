@@ -18,9 +18,12 @@ import "../../utilities.css";
  * @param {function} updateCompletedTask updates the completed prop
  */
 
+ let counter = 0;
+
 const SingleTask = (props) => {
     const [farm, setFarm] = useState([]);
     const [tasksCompleted, setTasksCompleted] = useState(-1);
+
 
     useEffect(() => {
         if (props.userGoogleId) {
@@ -29,35 +32,44 @@ const SingleTask = (props) => {
             });
             console.log("Searching for Existing Stats Page...");
             get("/api/stats", {googleid: props.userGoogleId}).then((statsObj) => {
-                console.log("Stats Page Found");
                 console.log(statsObj.length);
                 if (statsObj.length === 0){
-                    setTasksCompleted(undefined)
+                    console.log("None Found for now");
+                    counter++;
+                    console.log(counter);
+                    setTasksCompleted(undefined);
                 } else {
+                console.log("Stats Page Found");
                 setTasksCompleted(statsObj[0].taskscompleted);
+                
             }
             });
       };
-    }, [props.userGoogleId]);
 
-    useEffect(() => {
-    }, [farm]);
+}, [props.userGoogleId]);
 
-  
- 
+console.log(tasksCompleted);
 
+useEffect(() => {
 
-    if (tasksCompleted === undefined) {
-        console.log("No Stats page found...");
-        const body1 = {googleid: props.userGoogleId, taskscompleted: 0}
-        post("/api/stat", body1).then((stats) => {
-            console.log("Stats Schema Initialized");
-        setTasksCompleted(0);
-        flag = false;
-        });
-    } else {
-        console.log ("Moving on");
+if (tasksCompleted === undefined) {
+    console.log("trying");
+    if (counter === 7){ //band-aid fix lol
+    console.log("No Stats page found...");
+    const body1 = {googleid: props.userGoogleId, taskscompleted: 0}
+    post("/api/stat", body1).then((stats) => {
+        console.log("Stats Schema Initialized");
+    setTasksCompleted(0);
+
+    });
     };
+} else {
+    console.log ("Moving on");
+};
+}, [counter]);
+
+useEffect(() => {
+}, [tasksCompleted]);
 
 
     function changeRandomLocation(farm) {
@@ -95,7 +107,14 @@ const SingleTask = (props) => {
             console.log("Farm Updated");
         };
 
-        console.log(tasksCompleted);
+        let newTasksCompleted = tasksCompleted + 1;
+        let body2 = {googleid: props.userGoogleId, taskscompleted: newTasksCompleted}
+        post("/api/updatetaskscompleted", body2);
+        console.log("Stats updated");
+        get("/api/stats", {googleid: props.userGoogleId}).then((statsObj) => {
+            setTasksCompleted(statsObj[0].taskscompleted);
+        });
+
 
         
         updateTask();

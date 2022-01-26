@@ -114,9 +114,9 @@ router.post("/stat", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post("/updatetaskscompleted", auth.ensureLoggedIn, (req, res) => {
-  Stats.findOne({_id: req.body.objectId}).then((stats) => {
-    stats.taskscompleted = stats.taskscompleted + 1
-    stats.save()
+  Stat.findOne({googleid: req.body.googleid}).then((stats) => {
+    stats.taskscompleted = req.body.taskscompleted;
+    stats.save();
   });
 });
 
