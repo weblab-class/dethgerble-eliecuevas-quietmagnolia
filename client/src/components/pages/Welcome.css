@@ -69,6 +69,23 @@
     right: 101px;
 }
 
+.GetEvolvingText {
+    position: absolute;
+    bottom: 178px;
+    z-index: 101;
+    height: 50px;
+    color: white;
+    font-size: 20pt;
+    font-family: Saira Semi Condensed;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    right: 240px;
+}
+
+.GetEvolvingArrow {
+    cursor: pointer;
+}
 
 .WelcomeStrip {
     position: absolute;
@@ -94,23 +111,3 @@
 }
 
 
-.GoogleButtonRegister {
-    float:none;
-    position:absolute;
-    top: 100px;
-    right: 100px;
-    display:block;
-    margin:auto;
-    width:max-content;
-}
-
-.GoogleButtonSignIn {
-    float:none;
-    position:absolute;
-    top: 68px;
-    right: 100px;
-    display:block;
-    margin:auto;
-    width:max-content;
-
-}

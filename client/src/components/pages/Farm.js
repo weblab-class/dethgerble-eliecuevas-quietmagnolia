@@ -9,7 +9,7 @@ import { get, post } from "../../utilities";
 
 // Defines the Farm component
 
-let test = "hello"
+
 
 
 const Farm = ( props ) => {

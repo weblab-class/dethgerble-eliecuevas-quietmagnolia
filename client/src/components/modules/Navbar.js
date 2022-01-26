@@ -7,7 +7,7 @@ import ButtonMenu from "./ButtonMenu.js";
 import "./LoginButton.css";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 import Nav from "./Nav.js";
-import gohome from "./gohome.js";
+import { gohome } from "./goplaces.js";
 
 const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.googleusercontent.com";
 

@@ -13,7 +13,7 @@ const express = require("express");
 const User = require("./models/user");
 const Farm = require("./models/farm");
 const Task = require("./models/task");
-const Stats = require("./models/stats");
+const Stat = require("./models/stat");
 
 // import authentication library
 const auth = require("./auth");
@@ -99,18 +99,18 @@ router.post("/updatetask", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/stats", (req, res) => {
-  Stats.find({ googleid: req.query.googleid }).then((stats) => {
+  Stat.find({ googleid: req.query.googleid }).then((stats) => {
     res.send(stats);
   });
 });
 
-router.post("/stats", auth.ensureLoggedIn, (req, res) => {
-  const newStats = new Stats({
+router.post("/stat", auth.ensureLoggedIn, (req, res) => {
+  const newStat = new Stat({
     googleid: req.body.googleid,
     taskscompleted: req.body.taskscompleted,
   });
 
-  newStats.save().then((stats) => res.send(stats));
+  newStat.save().then((stats) => res.send(stats));
 });
 
 router.post("/updatetaskscompleted", auth.ensureLoggedIn, (req, res) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import "./Tutorial.css";
-import getfirstname from "../modules/FunFunctions.js";
+import  { getfirstname } from "../modules/FunFunctions.js";
 
 const Tutorial = (props) => {
 
