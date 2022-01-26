@@ -1,9 +1,4 @@
-.NewPostInput-input,
-.NewPostInput-button {
-  font-family: "Open Sans";
-  font-size: 14px;
-  padding: var(--s) var(--m);
-}
+
 
 .NewPostInput-input {
   flex-grow: 1;
@@ -12,6 +7,9 @@
   transition: box-shadow 0.1s;
   color: var(--richblack);
   height: 50px;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  padding: var(--s) var(--m);
 }
 
 .NewPostInput-input:focus-within {

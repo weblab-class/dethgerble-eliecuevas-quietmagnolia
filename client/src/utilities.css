@@ -14,9 +14,7 @@
 * much after initial creation.
 */
 
-/* TODO: REPLACE WITH YOUR OWN FONT! */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Licorice&display=swap');
 :root {
   --primary: #8C95E3;
   --primary-opaque: #8c95e35b;
@@ -41,8 +39,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Outfit", sans-serif;
 }
 
 form {
