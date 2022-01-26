@@ -24,7 +24,6 @@ const Navbar = (props) => {
             buttonText="Logout"
             onLogoutSuccess={props.handleLogout}
             onFailure={(err) => console.log(err)}
-            className = "GoogleButton"
             />
             ) : (
             <GoogleLogin
@@ -32,7 +31,7 @@ const Navbar = (props) => {
             buttonText="Login"
             onSuccess={props.handleLogin}
             onFailure={(err) => console.log(err)}
-            className = "GoogleButton"
+            
             />
             )} 
             </div>
