@@ -12,4 +12,5 @@
   color: var(--richblack);
   font-family: "Outfit", sans-serif;
   font-size: 40px;
+  overflow-wrap: anywhere;
 }

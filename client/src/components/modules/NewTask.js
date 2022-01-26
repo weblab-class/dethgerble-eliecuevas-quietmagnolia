@@ -31,8 +31,10 @@ const NewTask = (props) => {
   // called when the user hits "Submit" for a new post
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTask(value);
-    setValue("");
+    if (value.length !== 0) {
+      addTask(value);
+      setValue("");
+    }
   };
 
   return (
