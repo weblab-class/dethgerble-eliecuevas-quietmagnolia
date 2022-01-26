@@ -3,7 +3,7 @@
   border: var(--richblack) 3px solid;
   border-radius: var(--m);
   background-color: var(--white);
-  padding: 15px 25px;
+  padding: 10px 25px;
   display: flex;
   align-items: center;
 }
@@ -11,5 +11,5 @@
 .task-content {
   color: var(--richblack);
   font-family: "Outfit", sans-serif;
-  font-size: 30px;
+  font-size: 40px;
 }

@@ -109,8 +109,6 @@ const Tasks = (props) => {
           )}
           </div>
       </div>
-      <div className = "tasks-background-bottom">
-      </div>
     </>
   );
 };
