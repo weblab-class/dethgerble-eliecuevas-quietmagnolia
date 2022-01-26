@@ -36,3 +36,25 @@ export function getphrase() {
 }
 
 
+export function getphrase2(name) {
+
+    const d = new Date();
+    const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    let day =  weekday[d.getDay()];
+    let min = Math.ceil(1)
+    let max = Math.floor(6)
+    let num = Math.floor(Math.random() * (max - min) + min);
+
+    if (num === 1){
+        return ("You know what they say: "+day+"s are for admiring yourself.");
+    } else if (num === 2){
+        return ("Working hard, "+name+".");
+    } else if (num === 3){
+        return ("Sometimes it's necessary to stop and smell the roses.");
+    } else if (num === 4){
+        return ("Now that's what I call a grind.");
+    } else {
+        return ("In case "+name+ " ever doubted themself.")
+    }
+}
+

@@ -12,6 +12,7 @@ import About from "./pages/About.js";
 import Tutorial from "./pages/Tutorial";
 import { get, post } from "../utilities";
 import { socket } from "../client-socket.js";
+import FarmUpdate from "./pages/FarmUpdate.js";
 
 import "../utilities.css";
 import "./App.css";
@@ -111,6 +112,10 @@ const App = () => {
             userName = {userName}
             userGoogleId = {userGoogleId}
             path = "/tutorial" />
+            <FarmUpdate
+            userName = {userName}
+            userGoogleId = {userGoogleId}
+            path = "/farmupdate" />
 
             <NotFound default />
           </Router>

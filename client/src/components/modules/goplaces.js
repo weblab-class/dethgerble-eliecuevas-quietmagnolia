@@ -6,3 +6,7 @@ export function gohome(){
 export function gotasks(){
     window.location.replace("/tasks");
 }
+
+export function gofarm(){
+    window.location.replace("/farm");
+}

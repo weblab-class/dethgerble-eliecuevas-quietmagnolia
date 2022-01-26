@@ -54,12 +54,13 @@ useEffect(() => {
 
 if (tasksCompleted === undefined) {
     console.log("trying");
-    if (counter === 7){ //band-aid fix lol
+    if (counter === 3){ //band-aid fix lol
     console.log("No Stats page found...");
     const body1 = {googleid: props.userGoogleId, taskscompleted: 0}
     post("/api/stat", body1).then((stats) => {
         console.log("Stats Schema Initialized");
     setTasksCompleted(0);
+    counter++;
 
     });
     };
@@ -69,7 +70,7 @@ if (tasksCompleted === undefined) {
 }, [counter]);
 
 useEffect(() => {
-}, [tasksCompleted]);
+}, [farm]);
 
 
     function changeRandomLocation(farm) {
@@ -107,21 +108,28 @@ useEffect(() => {
             console.log("Farm Updated");
         };
 
+        function waitForTC(){
+        if (tasksCompleted !== undefined){
         let newTasksCompleted = tasksCompleted + 1;
+        console.log(tasksCompleted);
         let body2 = {googleid: props.userGoogleId, taskscompleted: newTasksCompleted}
         post("/api/updatetaskscompleted", body2);
         console.log("Stats updated");
-        get("/api/stats", {googleid: props.userGoogleId}).then((statsObj) => {
-            setTasksCompleted(statsObj[0].taskscompleted);
-        });
 
-
-        
+    } else {
+        setTimeout(waitForTC, 250);
+        };
+    };
+        waitForTC();
+        setTasksCompleted(tasksCompleted + 1);
         updateTask();
         console.log("Task Submitted");
+        console.log("Redirecting...");
+        window.location.replace("/farmupdate");
     };
 
     return (
+        
         <div className="task-container">
             {<TasksButton 
             complete={props.complete} 
@@ -129,6 +137,7 @@ useEffect(() => {
             <div className="task-content">{props.task}</div>
         </div>
     );
+
 };
   
 export default SingleTask;

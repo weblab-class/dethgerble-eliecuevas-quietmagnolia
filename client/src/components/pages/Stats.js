@@ -4,16 +4,18 @@ import WelcomeImage1 from "../images/welcomefarm1.jpg";
 
 import "../../utilities.css";
 import "./Stats.css";
+import { getfirstname, getphrase2 } from "../modules/FunFunctions.js";
+
 
 // Defines the Stats component
 
-const Stats = () => {
+const Stats = (props) => {
 
 
   return (
     <>
  
-    <img className = "WelcomeImage" src = {WelcomeImage1}/>
+    <h1> {statsMessage} </h1>
 
     </>
   );

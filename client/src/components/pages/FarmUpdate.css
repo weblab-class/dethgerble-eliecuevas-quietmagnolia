@@ -1,0 +1,17 @@
+.WelcomeImage {
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+    top:187px;
+    bottom: 0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row | row-reverse | column | column-reverse;
+}
+
+.item {
+    order: 5; /* default is 0 */
+  }
