@@ -2,7 +2,6 @@
     max-width: 960px;
     padding: var(--m) var(--m);
     margin: auto;
-    height: 100vh;
   }
 
 .Tasks-background {
@@ -10,7 +9,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow-y: scroll;
     background-size: cover;
 }
 
