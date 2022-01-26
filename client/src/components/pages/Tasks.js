@@ -89,7 +89,7 @@ const Tasks = (props) => {
       />
     ));
   } else {
-    tasksList = <h1 className="u-Center">No tasks!</h1>
+    tasksList = <h1 className="not-logged-into-tasks u-Center">No tasks!</h1>
   }
 
   return (
