@@ -12,3 +12,33 @@
     padding: var(--s) var(--m);
     background-color: #ffffff
   }
+
+
+.submit-task-button {
+  color: var(--richblack);
+  border: var(--richblack) 3px solid;
+  border-radius: 50%;
+  background: none;
+  transition: color 0.1s, background 0.1s;
+  width: 70px;
+  height: 70px;
+  margin-right: 35px;
+  font-size: 40px;
+}
+  
+.submit-task-button:hover {
+  background-color: var(--primary);
+}
+
+.completed-task-button {
+  color: var(--primary-dark);
+  border: var(--richblack) 3px solid;
+  border-radius: 50%;
+  background: none;
+  transition: color 0.1s, background 0.1s;
+  width: 70px;
+  height: 70px;
+  margin-right: 35px;
+  font-size: 30px;
+  background-color: var(--primary)
+}
