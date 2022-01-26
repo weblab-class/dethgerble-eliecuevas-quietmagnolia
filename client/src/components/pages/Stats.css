@@ -1,3 +1,11 @@
+
+ @import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
+
+.giveBackground {
+    background-color: #e4e2dc;
+}
+
 .WelcomeImage {
     position: absolute;
     height: 80%;
@@ -5,4 +13,26 @@
     object-fit: cover;
     top:187px;
     bottom: 0px;
+}
+
+.Titles{
+    position: relative;
+    text-align: center;
+
+}
+
+.BodyText{
+    position: relative;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-size: large;
+    font-style: italic;
+}
+
+.WayDownHere{
+    position: relative;
+    margin-top: 10%;
+    margin-left: 50%;
+    font-size: xx-small;
+    overflow: hidden;
 }

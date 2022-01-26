@@ -10,8 +10,48 @@ import Nav from "./Nav.js";
 import { gohome } from "./goplaces.js";
 
 const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.googleusercontent.com";
+let location = document.URL.toString()
+console.log(location);
+
+function getLastPart(location){
+    let result = ""
+    let flag = false;
+    for (let i = location.length -1; i>0 ; i--){
+        if (location[i] === "/"){
+            flag = true;
+        } else if (flag === false){
+            result = location[i] + result;
+        }
+    }
+    return result
+}
+
+let lastPart = getLastPart(location);
+
+
 
 const Navbar = (props) => {
+    if (lastPart === ""){
+        return ( <>
+        <nav className = "Navbar">
+            
+            <div className = "Logo" onClick = {gohome}> uevolve </div>
+            <Nav/>
+            <div> {props.userId ? (
+            <GoogleLogout
+            clientId={GOOGLE_CLIENT_ID}
+            buttonText="Logout"
+            onLogoutSuccess={props.handleLogout}
+            onFailure={(err) => console.log(err)}
+            />
+            ) : (
+            <>
+            </>
+            )} 
+            </div>
+        </nav>
+        </>)
+    } else {
     return (
         <>
         <nav className = "Navbar">
@@ -38,6 +78,7 @@ const Navbar = (props) => {
         </nav>
         </>
     );
+            }
 };
 
 export default Navbar;

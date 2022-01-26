@@ -3,6 +3,7 @@ import WelcomeImage1 from "../images/welcomefarm1.jpg";
 
 
 import "../../utilities.css";
+import { get, post } from "../../utilities";
 import "./Stats.css";
 import { getfirstname, getphrase2 } from "../modules/FunFunctions.js";
 
@@ -10,14 +11,50 @@ import { getfirstname, getphrase2 } from "../modules/FunFunctions.js";
 // Defines the Stats component
 
 const Stats = (props) => {
+  const [firstName, setFirstName] = useState("[Loading...]");
+  const [titlePhrase, setTitlePhrase] = useState("[Loading...]");
+  const [tasksCompleted, setTasksCompleted] = useState("[Loading...]");
 
+  useEffect(() => {
+    if (props.userName) {
+      setFirstName(getfirstname(props.userName));
 
+    }
+  }, [props.userName]);
+
+  useEffect(() => {
+    if (firstName !== "[Loading...]"){
+      setTitlePhrase(getphrase2(firstName));
+    };
+  }, );
+
+  useEffect(() => {
+    if (props.userGoogleId){
+    get("/api/stats", {googleid: props.userGoogleId}).then((statsObj) => {
+      setTasksCompleted(statsObj[0].taskscompleted);
+    });
+  };
+  }, );
+
+  
   return (
     <>
- 
-    <h1> {statsMessage} </h1>
+  {props.userName ? (
+    <>
+    <h1 className = "Titles"> {titlePhrase} </h1>
+    <h2 className = "Titles"> Here are your stats.</h2>
+
+    <p className = "BodyText"> Tasks Completed: <b>{tasksCompleted}</b></p>
+    <p className = "WayDownHere"> Maybe more stats coming soon... maybe</p>
+    
 
     </>
+  ) : (
+    <>
+    <h1 className="u-Center"> You are not logged in. Please log in to view your stats.</h1>
+    </>
+  )}  
+  </>
   );
 };
 

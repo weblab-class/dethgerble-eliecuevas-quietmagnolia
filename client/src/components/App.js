@@ -17,7 +17,7 @@ import FarmUpdate from "./pages/FarmUpdate.js";
 import "../utilities.css";
 import "./App.css";
 
-// Define the "App" component
+//Define the "App" component
 
 const App = () => {
   const [userId, setUserId] = useState(undefined);
@@ -32,19 +32,10 @@ const App = () => {
         setUserName(user.name);
         setUserGoogleId(user.googleid);
         //console.log('here');
-        handleStats(user.googleid)
       }
     });
   }, []);
 
-  const handleStats = (userGoogleId) => {
-    get("/api/stats", {googleid: userGoogleId}).then((stats) => {
-      if (stats._id) {
-        const body = {googleid: userGoogleId, taskscompleted: 0}
-        post("/api/stats", body)
-      };
-    });
-  };
 
   const handleLogin = (res, isNewUser) => {
     console.log(`Logged in as ${res.profileObj.name}`);
@@ -123,6 +114,7 @@ const App = () => {
       </div>
     </>
   );
+  return (<> </>)
 };
 
 export default App;

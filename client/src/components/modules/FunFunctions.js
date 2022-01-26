@@ -4,9 +4,9 @@ export function getfirstname(name) { //get first name
     let flag = false;
     for (let i = 0; i < name.length; i++){
         if (name[i] === " "){
-            flag = true
+            flag = true;
         } else if(flag === false) {
-            result = result + name[i]
+            result = result + name[i];
         }
     }
     return result
@@ -48,7 +48,7 @@ export function getphrase2(name) {
     if (num === 1){
         return ("You know what they say: "+day+"s are for admiring yourself.");
     } else if (num === 2){
-        return ("Working hard, "+name+".");
+        return ("You've been working hard, "+name+".");
     } else if (num === 3){
         return ("Sometimes it's necessary to stop and smell the roses.");
     } else if (num === 4){
