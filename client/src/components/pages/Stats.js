@@ -45,7 +45,6 @@ const Stats = (props) => {
     <h2 className = "Titles"> Here are your stats.</h2>
 
     <p className = "BodyText"> Tasks Completed: <b>{tasksCompleted}</b></p>
-    <p className = "WayDownHere"> hi mom</p>
     
 
     </>

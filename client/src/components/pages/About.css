@@ -13,8 +13,7 @@
 
 
 .AboutWrapper{
-    text-align: left;
-    margin-left: 5%;
+    text-align: center;
     align-items: center;
     position: relative;
 }
@@ -26,15 +25,15 @@
 
 .LogoAbout {
     font-family: Saira Condensed;
-    color: #8C95E3;
+    color: #8C95E3;;
 }
 
 .about-container {
     display: flex;
-    margin: 5%;
+    margin: 2%;
     padding: 20px;
     flex-wrap: wrap;
-    background-color: #328a9c;
+    background-color: var(--richblack);
     border-radius:40px;
 }
 
@@ -86,4 +85,8 @@
 .about-image img {
     height:auto;
     width:auto;
+}
+
+.AboutMiddle {
+    text-align: center;
 }

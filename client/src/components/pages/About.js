@@ -20,9 +20,9 @@ const About = () => {
         <>
         <div className = "AboutWrapper">
         <h1 className = "AboutTop"> About <span className = "LogoTutorial" >uevolve</span></h1>
-        <h2> <span className = "LogoAbout"><b>uevolve</b></span> is a website we created to be a fun tool to plan with and as a way to learn.</h2>
+        <h2 className="AboutMiddle"> <span className = "LogoAbout"><b>uevolve</b></span> is a website we created to incentivize people to complete their tasks, and have fun doing it!</h2>
         
-        <p> <span className = "LogoAbout"><b>uevolve</b></span> is a productivity manager, where you can see your completed tasks immortalized in your own personal digital farm. As you do more of what you need to do, watch your farm develop.</p>
+        <p className="AboutMiddle"> <span className = "LogoAbout"><b>uevolve</b></span> is a productivity manager. You can see your completed tasks immortalized in your own personal digital farm. As you do more of what you need to do, you can watch your farm develop!</p>
         </div>
 
        

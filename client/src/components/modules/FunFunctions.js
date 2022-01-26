@@ -54,7 +54,7 @@ export function getphrase2(name) {
     } else if (num === 4){
         return ("Now that's what I call a grind.");
     } else {
-        return ("In case "+name+ " ever doubted themself.")
+        return ("In case "+name+ " ever doubted themselves.")
     }
 }
 
