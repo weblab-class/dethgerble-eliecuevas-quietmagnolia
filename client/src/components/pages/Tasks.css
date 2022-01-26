@@ -2,7 +2,7 @@
     max-width: 960px;
     padding: var(--m) var(--m);
     margin: auto;
-    background-image: "../images/blurred_farm.jpg";
+    height: 100vh;
   }
 
 .Tasks-background {
@@ -10,6 +10,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+    overflow-y: scroll;
     background-size: cover;
+}
+
+.tasks-background-bottom {
+  background-color: var(--cultured);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  flex: 1;
+  background-size: cover;
 }

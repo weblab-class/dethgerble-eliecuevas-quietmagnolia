@@ -15,11 +15,10 @@ import "../../utilities.css";
  * @param {Boolean} complete whether the task is completed
  * @param {string} userGoogleId the Google ID of the user
  * @param {function} callTaskDonePopup function that brings up a popup
+ * @param {function} updateCompletedTask updates the completed prop
  */
 
 const SingleTask = (props) => {
-  
-    const [compl, setCompl] = useState(props.complete);
     const [farm, setFarm] = useState([]);
 
     useEffect(() => {
@@ -34,7 +33,6 @@ const SingleTask = (props) => {
     }, [farm]);
 
     function changeRandomLocation(farm) {
-        console.log(farm);
         let locations = Array();
 
         // find all open positions in array
@@ -55,9 +53,9 @@ const SingleTask = (props) => {
     const updateTask = () => {
         let body = {objectId: props._id}
         post("/api/updatetask", body).then(() => {
-          setCompl(true);
         });
         props.callTaskDonePopup();
+        props.updateCompletedTask(props._id);
     };
 
     const handleSubmit = (event) => {
@@ -75,7 +73,7 @@ const SingleTask = (props) => {
     return (
         <div className="task-container">
             <span className="Card-story">
-                {<TasksButton submitted={compl} handleSubmit={handleSubmit}/>}
+                {<TasksButton complete={props.complete} handleSubmit={handleSubmit}/>}
                 <p className="Card-storyContent">{props.task}</p>
             </span>
         </div>

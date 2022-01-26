@@ -65,6 +65,14 @@ const Tasks = (props) => {
     setTasks([taskObj].concat(tasks));
   };
 
+  const updateCompletedTask = (id) => {
+    var task = tasks.filter(task => task._id === id);
+    tasks.splice(tasks.findIndex(t => t._id === id), 1)
+    task[0].complete = true;
+    console.log(task)
+    setTasks(task.concat(tasks));
+  };
+
   let tasksList = null;
   const hasTasks = tasks.length !== 0;
   if (hasTasks) {
@@ -77,6 +85,7 @@ const Tasks = (props) => {
         complete={taskObj.complete}
         userGoogleId={taskObj.googleid}
         callTaskDonePopup={togglePopup}
+        updateCompletedTask={updateCompletedTask}
       />
     ));
   } else {
@@ -99,6 +108,8 @@ const Tasks = (props) => {
             </>
           )}
           </div>
+      </div>
+      <div className = "tasks-background-bottom">
       </div>
     </>
   );

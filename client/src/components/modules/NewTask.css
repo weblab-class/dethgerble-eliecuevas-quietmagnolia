@@ -7,16 +7,16 @@
 
 .NewPostInput-input {
   flex-grow: 1;
-  border: var(--darkestgrey) 3px solid;
-  border-radius: var(--xs) 0 0 var(--xs);
+  border: var(--richblack) 3px solid;
+  border-radius: var(--xs);
   transition: box-shadow 0.1s;
-  color: var(--darkestgrey);
+  color: var(--richblack);
   height: 50px;
 }
 
 .NewPostInput-input:focus-within {
-  border-color: var(--darkestgrey);
-  box-shadow: 0 0 0 var(--xs) rgba(0, 123, 255, 0.25);
+  border-color: var(--richblack);
+  box-shadow: 0 0 0 var(--xs) var(--primary-opaque);
 }
 
 .NewPostInput-button {
@@ -27,12 +27,12 @@
   transition: color 0.1s, background 0.1s;
   width: 70px;
   height: 70px;
-  margin-right: 50px;
+  margin-right: 35px;
   font-size: 40px;
 }
 
 .NewPostInput-button:hover {
-  background-color: var(--green);
+  background-color: var(--primary);
 }
 
 .NewTaskCenter {
@@ -42,7 +42,7 @@
 .newtask-container {
   border: var(--richblack) 3px solid;
   border-radius: var(--m);
-  margin-top: var(--m);
   background-color: var(--white);
-  padding: 50px;
+  padding: 25px;
+  display: flex;
 }
