@@ -30,6 +30,7 @@ import corn from "../images/cornnn.png";
 import bunnyup from "../images/bunnyup.png";
 import bunnydown from "../images/bunnydown.png";
 import combine from "../images/combineee.png";
+import ox from "../images/oxx.png";
 
 // Defines the Farm component
 
@@ -41,6 +42,7 @@ import combine from "../images/combineee.png";
 
 let decideImage = {
   "-": transparent,
+  0: ox,
   1: bunnydown,
   2: cow,
   3: dog,
