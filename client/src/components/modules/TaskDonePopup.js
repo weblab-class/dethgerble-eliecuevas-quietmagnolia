@@ -10,11 +10,9 @@ import "./TaskDonePopup.css";
 
 const TaskDonePopup = (props) => {
   return (
-    <div className="popup-box">
-      <div className="box">
-        <span className="close-icon" onClick={props.handleClose}>x</span>
-        Congratulations! You have completed another task. Your farm has increased by one level. 
-      </div>
+    <div className="box">
+      <div className="popup-text"> Congratulations! You have completed another task. Your farm has expanded! </div>
+      <div className="close-icon" onClick={props.handleClose}>x</div>
     </div>
   );
 };
