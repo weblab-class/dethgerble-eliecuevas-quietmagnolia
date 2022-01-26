@@ -1,8 +1,89 @@
-.WelcomeImage {
+/* .WelcomeImage {
     position: absolute;
     height: 80%;
     width: 100%;
     object-fit: cover;
     top:187px;
     bottom: 0px;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
+
+
+.AboutWrapper{
+    text-align: left;
+    margin-left: 5%;
+    align-items: center;
+    position: relative;
+}
+
+.AboutTop{
+    text-align: center;
+    position: relative;
+}
+
+.LogoAbout {
+    font-family: Saira Condensed;
+    color: #8C95E3;
+}
+
+.about-container {
+    display: flex;
+    margin: 5%;
+    padding: 20px;
+    flex-wrap: wrap;
+    background-color: #328a9c;
+    border-radius:40px;
+}
+
+.about-card {
+    text-align: center;
+    flex: 1 15%;
+    height: auto;
+    margin: 10px;
+    flex-wrap:wrap;
+    font-family: Lato;
+    
+    border-radius:25px;
+    background-color: #f1f1f1;
+}
+
+.about-name {
+    font-size: 30px;
+    margin: 5px;
+}
+
+.developer-label {
+    background-color: #8C95E3;
+    margin: auto;
+    border-radius:50px;
+    text-align: center;
+    flex-shrink:0;
+    flex-basis: 100%;
+    font-size: 40px;
+    font-family: Lato;
+}
+
+.about-text {
+    width:auto;
+    margin:20px;
+}
+
+.about-info {
+    margin-top: auto;
+    font-size: 15px;
+}
+
+.about-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 15px;
+    overflow:hidden;
+}
+
+.about-image img {
+    height:auto;
+    width:auto;
 }
