@@ -5,26 +5,11 @@
   background-color: var(--white);
   padding: 15px 25px;
   display: flex;
-}
-
-.Card-story,
-.Card-commentSection {
-  padding: var(--m) var(--l);
-  display: flex;
-  justify-content: center;
-}
-
-.Card-storyUser {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.Card-storyContent {
-  font-size: 40px;
-  margin: var(--s) 0 0;
-  text-align: center;
+  align-items: center;
 }
 
 .task-content {
-
+  color: var(--richblack);
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
 }

@@ -75,7 +75,7 @@ const SingleTask = (props) => {
             {<TasksButton 
             complete={props.complete} 
             handleSubmit={handleSubmit}/>}
-            <p className="task-content">{props.task}</p>
+            <div className="task-content">{props.task}</div>
         </div>
     );
 };
