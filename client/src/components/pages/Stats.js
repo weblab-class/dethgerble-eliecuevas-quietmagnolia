@@ -13,7 +13,7 @@ import { getfirstname, getphrase2 } from "../modules/FunFunctions.js";
 const Stats = (props) => {
   const [firstName, setFirstName] = useState("[Loading...]");
   const [titlePhrase, setTitlePhrase] = useState("[Loading...]");
-  const [tasksCompleted, setTasksCompleted] = useState("[Loading...]");
+  const [tasksCompleted, setTasksCompleted] = useState("Your First Task doesn't count! Make more!");
 
   useEffect(() => {
     if (props.userName) {
@@ -45,7 +45,7 @@ const Stats = (props) => {
     <h2 className = "Titles"> Here are your stats.</h2>
 
     <p className = "BodyText"> Tasks Completed: <b>{tasksCompleted}</b></p>
-    <p className = "WayDownHere"> Maybe more stats coming soon... maybe</p>
+    <p className = "WayDownHere"> hi mom</p>
     
 
     </>

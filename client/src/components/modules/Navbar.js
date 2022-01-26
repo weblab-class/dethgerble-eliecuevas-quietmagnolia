@@ -11,7 +11,7 @@ import { gohome } from "./goplaces.js";
 
 const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.googleusercontent.com";
 let location = document.URL.toString()
-console.log(location);
+//console.log(location);
 
 function getLastPart(location){
     let result = ""
@@ -31,7 +31,7 @@ let lastPart = getLastPart(location);
 
 
 const Navbar = (props) => {
-    if (lastPart === ""){
+    if (lastPart === "" || lastPart === "tasks"){
         return ( <>
         <nav className = "Navbar">
             

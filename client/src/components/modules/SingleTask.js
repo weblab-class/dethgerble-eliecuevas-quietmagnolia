@@ -30,16 +30,16 @@ const SingleTask = (props) => {
             get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
                 setFarm(farmObj);
             });
-            console.log("Searching for Existing Stats Page...");
+            //console.log("Searching for Existing Stats Page...");
             get("/api/stats", {googleid: props.userGoogleId}).then((statsObj) => {
-                console.log(statsObj.length);
+                //console.log(statsObj.length);
                 if (statsObj.length === 0){
                     console.log("None Found for now");
                     counter++;
-                    console.log(counter);
+                    //console.log(counter);
                     setTasksCompleted(undefined);
                 } else {
-                console.log("Stats Page Found");
+                //console.log("Stats Page Found");
                 setTasksCompleted(statsObj[0].taskscompleted);
                 
             }
@@ -48,24 +48,24 @@ const SingleTask = (props) => {
 
 }, [props.userGoogleId]);
 
-console.log(tasksCompleted);
+//console.log(tasksCompleted);
 
 useEffect(() => {
 
 if (tasksCompleted === undefined) {
-    console.log("trying");
-    if (counter === 3){ //band-aid fix lol
-    console.log("No Stats page found...");
+    //console.log("trying");
+    if (counter === 2){ //band-aid fix lol
+    //console.log("No Stats page found...");
     const body1 = {googleid: props.userGoogleId, taskscompleted: 0}
     post("/api/stat", body1).then((stats) => {
-        console.log("Stats Schema Initialized");
+        //console.log("Stats Schema Initialized");
     setTasksCompleted(0);
     counter++;
 
     });
     };
 } else {
-    console.log ("Moving on");
+    //console.log ("Moving on");
 };
 }, [counter]);
 
@@ -105,16 +105,16 @@ useEffect(() => {
             let newFarm = changeRandomLocation(farm[0].farm);
             let body = {googleid: props.userGoogleId, newfarm: newFarm};
             post("/api/updatefarm", body);
-            console.log("Farm Updated");
+            //console.log("Farm Updated");
         };
 
         function waitForTC(){
         if (tasksCompleted !== undefined){
         let newTasksCompleted = tasksCompleted + 1;
-        console.log(tasksCompleted);
+        //console.log(tasksCompleted);
         let body2 = {googleid: props.userGoogleId, taskscompleted: newTasksCompleted}
         post("/api/updatetaskscompleted", body2);
-        console.log("Stats updated");
+        //console.log("Stats updated");
 
     } else {
         setTimeout(waitForTC, 250);
@@ -123,8 +123,8 @@ useEffect(() => {
         waitForTC();
         setTasksCompleted(tasksCompleted + 1);
         updateTask();
-        console.log("Task Submitted");
-        console.log("Redirecting...");
+        //console.log("Task Submitted");
+        //console.log("Redirecting...");
         window.location.replace("/farmupdate");
     };
 

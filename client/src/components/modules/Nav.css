@@ -75,13 +75,13 @@
 	 z-index: -1;
 }
  li:nth-child(2) a:after {
-	 background: #ecc64b;
+	 background: #8DDA90;
 }
  li:nth-child(3) a:after {
 	 background: #f26667;
 }
  li:nth-child(4) a:after {
-	 background: #f26667;
+	 background: #ecc64b;
 }
  a.nav:hover:after {
 	 transform: rotateX(0deg) translateZ(0px);

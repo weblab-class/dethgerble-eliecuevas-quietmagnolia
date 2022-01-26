@@ -69,7 +69,7 @@ const Tasks = (props) => {
     var task = tasks.filter(task => task._id === id);
     tasks.splice(tasks.findIndex(t => t._id === id), 1)
     task[0].complete = true;
-    console.log(task)
+    //console.log(task)
     setTasks(task.concat(tasks));
   };
 
@@ -104,7 +104,7 @@ const Tasks = (props) => {
             </>
           ) : (
             <>
-            <h1 className="not-logged-into-tasks u-Center"> You are not logged in. Please log in to view your tasks.</h1>
+            <h1 className="not-logged-into-tasks u-Center"> You are not logged in. Please log in through the welcome page to view your tasks.</h1>
             </>
           )}
           </div>
