@@ -39,7 +39,7 @@
 	 list-style: none;
 	 padding: 0;
 }
- a {
+ a.nav {
 	 display: block;
 	 padding: 25px;
 	 text-transform: uppercase;
@@ -52,10 +52,10 @@
 	 transition: color 200ms;
 	 transform-style: preserve-3d;
 }
- a:hover {
+ a.nav:hover {
 	 color: #343e48;
 }
- a:after {
+ a.nav:after {
 	 content: attr(data-title);
 	 position: absolute;
 	 display: block;
@@ -83,7 +83,7 @@
  li:nth-child(4) a:after {
 	 background: #f26667;
 }
- a:hover:after {
+ a.nav:hover:after {
 	 transform: rotateX(0deg) translateZ(0px);
 }
  

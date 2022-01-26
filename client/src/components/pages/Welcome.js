@@ -16,7 +16,6 @@ import { socket } from "../../client-socket.js";
 import { get, post } from "../../utilities";
 import { Route } from "react-router";
 import GoogleButtonRegister from "../modules/GoogleButtonRegister.js";
-import gonewuser from "../modules/gonewuser.js";
 
 const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.googleusercontent.com";
 
@@ -29,24 +28,22 @@ const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.goog
 
 const Welcome = (props) => {
 
-
   return (
     <>
  
     {props.userId ? (
       <>
-      <h1 className = "TextOnWelcomeImage"> Welcome back, {props.userName}! </h1>
+      <h1 className = "TextOnWelcomeImage"> Welcome back, {props.userName}. </h1>
       </>
     ) : (
 
       <>
     <GoogleButtonSignIn
-    handleLogin = {props.handleLogin}/>
-    <div onClick = {gonewuser}>
-    <GoogleButtonRegister
-    handleLogin = {props.handleLogin}
+      handleLogin = {(res) => props.handleLogin(res, false)}/>
+    
+      <GoogleButtonRegister
+        handleLogin = {(res) => props.handleLogin(res, true)}
     />
-    </div>
         
     <h1 className = "TextOnWelcomeImage"> Welcome to uevolve</h1>
 

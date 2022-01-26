@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Router } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Farm from "./pages/Farm.js";
 import Friends from "./pages/Friends.js";
@@ -9,7 +9,7 @@ import Welcome from "./pages/Welcome.js";
 import Tasks from "./pages/Tasks.js";
 import Stats from "./pages/Stats.js";
 import About from "./pages/About.js";
-import NewUser from "./pages/NewUser.js";
+import Tutorial from "./pages/Tutorial";
 import { get, post } from "../utilities";
 import { socket } from "../client-socket.js";
 
@@ -46,7 +46,7 @@ const App = () => {
     });
   };
 
-  const handleLogin = (res) => {
+  const handleLogin = (res, isNewUser) => {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
@@ -54,6 +54,8 @@ const App = () => {
       setUserName(user.name);
       setUserGoogleId(user.googleid);
       post("/api/initsocket", { socketid: socket.id });
+
+      {isNewUser && navigate("/tutorial")}
       // handleStats(user.googleid)
     });
   };
@@ -106,10 +108,10 @@ const App = () => {
             userName = {userName}
             userGoogleId = {userGoogleId}
             path="/profile" />
-            <NewUser
+            <Tutorial
             userName = {userName}
             userGoogleId = {userGoogleId}
-            path = "/newuser" />
+            path = "/tutorial" />
 
             <NotFound default />
           </Router>

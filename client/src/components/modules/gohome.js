@@ -1,4 +1,5 @@
 function gohome(){
+    
     window.location.replace("/");
 }
 
