@@ -86,7 +86,7 @@ useEffect(() => {
         }
         // update random location
         let random_location = locations[Math.floor(Math.random() * locations.length)];
-        farm[random_location[0]][random_location[1]] = '+';
+        farm[random_location[0]][random_location[1]] = Math.floor(Math.random() * 20);
 
         return farm
     }
