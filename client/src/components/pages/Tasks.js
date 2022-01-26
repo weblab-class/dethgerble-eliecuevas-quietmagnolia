@@ -104,7 +104,7 @@ const Tasks = (props) => {
             </>
           ) : (
             <>
-            <h1 className="u-Center"> You are not logged in. Please log in to view your tasks.</h1>
+            <h1 className="not-logged-into-tasks u-Center"> You are not logged in. Please log in to view your tasks.</h1>
             </>
           )}
           </div>

@@ -6,10 +6,6 @@
 
 .Tasks-background {
     background-color: var(--cultured);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
 }
 
 .tasks-background-bottom {
@@ -19,4 +15,8 @@
   background-attachment: fixed;
   flex: 1;
   background-size: cover;
+}
+
+.not-logged-into-tasks {
+  height: 75vh;
 }

@@ -8,5 +8,5 @@
 .app-box {
   display: flex;
   flex-direction: column;
-  
+  background-color: var(--cultured);
 }
