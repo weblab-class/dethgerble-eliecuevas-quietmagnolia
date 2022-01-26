@@ -20,17 +20,45 @@ import "../../utilities.css";
 
 const SingleTask = (props) => {
     const [farm, setFarm] = useState([]);
+    const [tasksCompleted, setTasksCompleted] = useState(-1);
 
     useEffect(() => {
         if (props.userGoogleId) {
             get("/api/farms", {googleid: props.userGoogleId}).then((farmObj) => {
                 setFarm(farmObj);
             });
+            console.log("Searching for Existing Stats Page...");
+            get("/api/stats", {googleid: props.userGoogleId}).then((statsObj) => {
+                console.log("Stats Page Found");
+                console.log(statsObj.length);
+                if (statsObj.length === 0){
+                    setTasksCompleted(undefined)
+                } else {
+                setTasksCompleted(statsObj[0].taskscompleted);
+            }
+            });
       };
     }, [props.userGoogleId]);
 
     useEffect(() => {
     }, [farm]);
+
+  
+ 
+
+
+    if (tasksCompleted === undefined) {
+        console.log("No Stats page found...");
+        const body1 = {googleid: props.userGoogleId, taskscompleted: 0}
+        post("/api/stat", body1).then((stats) => {
+            console.log("Stats Schema Initialized");
+        setTasksCompleted(0);
+        flag = false;
+        });
+    } else {
+        console.log ("Moving on");
+    };
+
 
     function changeRandomLocation(farm) {
         let locations = Array();
@@ -66,6 +94,10 @@ const SingleTask = (props) => {
             post("/api/updatefarm", body);
             console.log("Farm Updated");
         };
+
+        console.log(tasksCompleted);
+
+        
         updateTask();
         console.log("Task Submitted");
     };

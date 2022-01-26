@@ -30,7 +30,7 @@ const App = () => {
         setUserId(user._id);
         setUserName(user.name);
         setUserGoogleId(user.googleid);
-        console.log('here');
+        //console.log('here');
         handleStats(user.googleid)
       }
     });
@@ -38,7 +38,6 @@ const App = () => {
 
   const handleStats = (userGoogleId) => {
     get("/api/stats", {googleid: userGoogleId}).then((stats) => {
-      console.log(stats)
       if (stats._id) {
         const body = {googleid: userGoogleId, taskscompleted: 0}
         post("/api/stats", body)

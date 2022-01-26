@@ -16,6 +16,10 @@ import { socket } from "../../client-socket.js";
 import { get, post } from "../../utilities";
 import { Route } from "react-router";
 import GoogleButtonRegister from "../modules/GoogleButtonRegister.js";
+import { getphrase , getfirstname } from "../modules/FunFunctions.js";
+import { gotasks } from "../modules/goplaces.js";
+
+
 
 const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.googleusercontent.com";
 
@@ -27,13 +31,27 @@ const GOOGLE_CLIENT_ID = "65119842375-qsvmlu1p97jbaccqj2hlgji2qaeesp7i.apps.goog
 
 
 const Welcome = (props) => {
+  const [firstName, setFirstName] = useState("[Loading...]");
+  const [welcomePhrase, setWelcomePhrase] = useState("[Loading...]");
+
+  useEffect(() => {
+
+  if (props.userName){
+
+  setFirstName(getfirstname(props.userName));
+  setWelcomePhrase(getphrase());
+
+};
+}, [props.userName]);
+
 
   return (
     <>
  
     {props.userId ? (
       <>
-      <h1 className = "TextOnWelcomeImage"> Welcome back, {props.userName}. </h1>
+      <h1 className = "TextOnWelcomeImage"> {welcomePhrase}, {firstName}. </h1>
+      <h1 className = "GetEvolvingText"><span className = "GetEvolvingArrow" onClick = {gotasks} ><b>Get Evolving</b> &nbsp;&nbsp;&nbsp; <i className = "arrow"></i></span></h1>
       </>
     ) : (
 
