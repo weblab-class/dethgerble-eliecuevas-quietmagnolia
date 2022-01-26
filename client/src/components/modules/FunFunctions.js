@@ -27,7 +27,7 @@ export function getphrase() {
     } else if (num === 2){
         return ("Nice to see you again");
     } else if (num === 3){
-        return ("I thought you'd never come back");
+        return ("Howdy");
     } else if (num === 4){
         return ("Happy " + day);
     } else {
