@@ -18,27 +18,28 @@ const TasksButton = (props) => {
 
     return (
         <>
-            {props.complete ? (
-                <>
-                    <button
-                        type="button"
-                        className="NewPostInput-button-complete u-pointer"
-                    >
-                        Done!
-                    </button>
-                </>
-            ) : (
-                <>
-                    <button
-                        type="submit"
-                        className="NewPostInput-button u-pointer"
-                        value="Submit"
-                        onClick={props.handleSubmit}
-                    >
-                        Submit
-                    </button>
-                </>
-            )}
+            <div>
+                {props.complete ? (
+                    <>
+                        <button
+                            type="button"
+                            className="completed-task-button"
+                        >
+                            
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <button
+                            type="submit"
+                            className="submit-task-button"
+                            value="Submit"
+                            onClick={props.handleSubmit}
+                        >
+                        </button>
+                    </>
+                )}
+            </div>
         </>
     )
 }

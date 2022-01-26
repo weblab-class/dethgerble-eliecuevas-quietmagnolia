@@ -18,9 +18,9 @@
 }
 
 .NewPostInput-button {
-  color: var(--darkestgrey);
-  border: var(--darkestgrey) 3px solid;
-  border-radius: 5%;
+  color: var(--richblack);
+  border: var(--richblack) 3px solid;
+  border-radius: 50%;
   background: none;
   transition: color 0.1s, background 0.1s;
   width: 70px;
@@ -41,6 +41,6 @@
   border: var(--richblack) 3px solid;
   border-radius: var(--m);
   background-color: var(--white);
-  padding: 25px;
+  padding: 15px 25px;
   display: flex;
 }

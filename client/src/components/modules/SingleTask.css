@@ -1,12 +1,10 @@
 .task-container {
-  border: var(--darkgrey) 2px solid;
-  border-radius: var(--m);
   margin-top: var(--m);
+  border: var(--richblack) 3px solid;
+  border-radius: var(--m);
   background-color: var(--white);
-}
-  
-.Card-container:first-of-type {
-  margin-top: var(--l);
+  padding: 15px 25px;
+  display: flex;
 }
 
 .Card-story,
@@ -27,26 +25,6 @@
   text-align: center;
 }
 
-.Card-commentSection {
-  background-color: var(--grey);
-  border-top: 1px solid var(--darkgrey);
-}
+.task-content {
 
-.Card-commentBody {
-  margin: 0 0 var(--s);
-}
-
-.NewPostInput-button-complete {
-  font-family: "Open Sans";
-  font-size: 14px;
-  padding: var(--s) var(--m);
-  background-color: #0a6416;
-  border-radius: 30%;
-}
-
-.NewPostInput-button {
-  font-family: "Open Sans";
-  font-size: 14px;
-  padding: var(--s) var(--m);
-  background-color: #ffffff
 }
