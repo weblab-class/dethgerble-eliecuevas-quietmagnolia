@@ -150,7 +150,7 @@ const Farm = ( props ) => {
 
     {props.userName ? (
       <>
-      <p> {array1} </p>
+      {/* <p> {array1} </p>
       <p> {array2} </p>
       <p> {array3} </p>
       <p> {array4} </p>
@@ -159,7 +159,129 @@ const Farm = ( props ) => {
       <p> {array7} </p>
       <p> {array8} </p>
       <p> {array9} </p>
-      <p> {array10} </p>
+      <p> {array10} </p> */}
+      <div class="flex-grid">
+        <div class="row">
+          <div class="col">{array1[0]}</div>
+          <div class="col">{array1[1]}</div>
+          <div class="col">{array1[2]}</div>
+          <div class="col">{array1[3]}</div>
+          <div class="col">{array1[4]}</div>
+          <div class="col">{array1[5]}</div>
+          <div class="col">{array1[6]}</div>
+          <div class="col">{array1[7]}</div>
+          <div class="col">{array1[8]}</div>
+          <div class="col">{array1[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{test}</div>
+          <div class="col">{test}</div>
+          <div class="col">{array2[2]}</div>
+          <div class="col">test</div>
+          <div class="col">{array2[4]}</div>
+          <div class="col">{array2[5]}</div>
+          <div class="col">{array2[6]}</div>
+          <div class="col">{array2[7]}</div>
+          <div class="col">{array2[8]}</div>
+          <div class="col">{array2[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array3[0]}</div>
+          <div class="col">{array3[1]}</div>
+          <div class="col">{array3[2]}</div>
+          <div class="col">{array3[3]}</div>
+          <div class="col">{array3[4]}</div>
+          <div class="col">{array3[5]}</div>
+          <div class="col">{array3[6]}</div>
+          <div class="col">{array3[7]}</div>
+          <div class="col">{array3[8]}</div>
+          <div class="col">{array3[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array4[0]}</div>
+          <div class="col">{array4[1]}</div>
+          <div class="col">{array4[2]}</div>
+          <div class="col">{array4[3]}</div>
+          <div class="col">{array4[4]}</div>
+          <div class="col">{array4[5]}</div>
+          <div class="col">{array4[6]}</div>
+          <div class="col">{array4[7]}</div>
+          <div class="col">{array4[8]}</div>
+          <div class="col">{array4[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array5[0]}</div>
+          <div class="col">{array5[1]}</div>
+          <div class="col">{array5[2]}</div>
+          <div class="col">{array5[3]}</div>
+          <div class="col">{array5[4]}</div>
+          <div class="col">{array5[5]}</div>
+          <div class="col">{array5[6]}</div>
+          <div class="col">{array5[7]}</div>
+          <div class="col">{array5[8]}</div>
+          <div class="col">{array5[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array6[0]}</div>
+          <div class="col">{array6[1]}</div>
+          <div class="col">{array6[2]}</div>
+          <div class="col">{array6[3]}</div>
+          <div class="col">{array6[4]}</div>
+          <div class="col">{array6[5]}</div>
+          <div class="col">{array6[6]}</div>
+          <div class="col">{array6[7]}</div>
+          <div class="col">{array6[8]}</div>
+          <div class="col">{array6[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array7[0]}</div>
+          <div class="col">{array7[1]}</div>
+          <div class="col">{array7[2]}</div>
+          <div class="col">{array7[3]}</div>
+          <div class="col">{array7[4]}</div>
+          <div class="col">{array7[5]}</div>
+          <div class="col">{array7[6]}</div>
+          <div class="col">{array7[7]}</div>
+          <div class="col">{array7[8]}</div>
+          <div class="col">{array7[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array8[0]}</div>
+          <div class="col">{array8[1]}</div>
+          <div class="col">{array8[2]}</div>
+          <div class="col">{array8[3]}</div>
+          <div class="col">{array8[4]}</div>
+          <div class="col">{array8[5]}</div>
+          <div class="col">{array8[6]}</div>
+          <div class="col">{array8[7]}</div>
+          <div class="col">{array8[8]}</div>
+          <div class="col">{array8[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array9[0]}</div>
+          <div class="col">{array9[1]}</div>
+          <div class="col">{array9[2]}</div>
+          <div class="col">{array9[3]}</div>
+          <div class="col">{array9[4]}</div>
+          <div class="col">{array9[5]}</div>
+          <div class="col">{array9[6]}</div>
+          <div class="col">{array9[7]}</div>
+          <div class="col">{array9[8]}</div>
+          <div class="col">{array9[9]}</div>
+       </div>
+       <div class="row">
+          <div class="col">{array10[0]}</div>
+          <div class="col">{array10[1]}</div>
+          <div class="col">{array10[2]}</div>
+          <div class="col">{array10[3]}</div>
+          <div class="col">{array10[4]}</div>
+          <div class="col">{array10[5]}</div>
+          <div class="col">{array10[6]}</div>
+          <div class="col">{array10[7]}</div>
+          <div class="col">{array10[8]}</div>
+          <div class="col">{array10[9]}</div>
+       </div>
+      </div>
       </>
     ) : (
       <>

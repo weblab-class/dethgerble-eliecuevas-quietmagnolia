@@ -9,9 +9,19 @@
 
 .container {
     display: flex;
-    flex-direction: row | row-reverse | column | column-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.item {
-    order: 5; /* default is 0 */
+.flex-grid {
+    display: flex;
   }
+  .col {
+    flex: 1;
+    text-align: center;
+    margin: 10px;
+  }
+  .row {
+      flex: auto;
+  }
+

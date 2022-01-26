@@ -16,7 +16,7 @@ const About = () => {
     <>
  
     
-    (
+    
         <>
         <div className = "AboutWrapper">
         <h1 className = "AboutTop"> About <span className = "LogoTutorial" >uevolve</span></h1>
